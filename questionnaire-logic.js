@@ -287,6 +287,18 @@ const rules = [
       { outcome: 'hasD11', value: 'uninterested in things' }
     ]
   },
+    {
+    variable: 'D12feelingv2',
+    conditions: [
+      { outcome: 'hasD3', value: 'SADness, DISCOURAGED, OR UNINTERESTED' },
+      { outcome: 'hasD4', value: 'SAD OR DISCOURAGED' },
+      { outcome: 'hasD5', value: 'SAD OR UNINTERESTED' },
+      { outcome: 'hasD6', value: 'SAD' },
+      { outcome: 'hasD7', value: 'DISCOURAGED OR UNINTERESTED' },
+      { outcome: 'hasD8', value: 'DISCOURAGED' },
+      { outcome: 'hasD11', value: 'uninterested in things' }
+    ]
+  },
   {
     variable: 'D22dtime',
     conditions: [
