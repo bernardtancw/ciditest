@@ -236,11 +236,7 @@ const clauses = {
       }
     }
     console.log("this is the total d27 count" + count);
-    if (count >= 2) {
-      return true;
-    } else {
-      return true;
-    }
+    return true;
   },
   D29feeling: (questionPool) => {
     if (questionPool['D24a'] == 1) {
