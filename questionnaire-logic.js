@@ -317,6 +317,13 @@ const clauses = {
       return 'Select ALL OTHERS';
     }
   },
+    D20Instruction: ({}, questionValues) => {
+    if (getQuestionValueByNumber(questionValues, 'D17') == '1' || getQuestionValueByNumber(questionValues, 'D18') == '4' || getQuestionValueByNumber(questionValues, 'D19') == '4') {
+      return 'Select 1';
+    } else {
+      return 'Select ALL OTHERS';
+    }
+  },
   D37eInstruction: ({}, questionValues) => {
     if (getQuestionValueByNumber(questionValues, 'D29') == '1' || getQuestionValueByNumber(questionValues, 'D29') == '2' || getQuestionValueByNumber(questionValues, 'D29') == '3') {
       return 'YES';
