@@ -166,15 +166,6 @@ const clauses = {
     else if (Object.keys(questionPool).some(key => key.includes('D8'))) return 'hasD8';
     else return 'hasD11';
   },
-    D12feelingv2: (questionPool) => {
-    if (Object.keys(questionPool).some(key => key.includes('D3'))) return 'hasD3';
-    else if (Object.keys(questionPool).some(key => key.includes('D4'))) return 'hasD4';
-    else if (Object.keys(questionPool).some(key => key.includes('D5'))) return 'hasD5';
-    else if (Object.keys(questionPool).some(key => key.includes('D6'))) return 'hasD6';
-    else if (Object.keys(questionPool).some(key => key.includes('D7'))) return 'hasD7';
-    else if (Object.keys(questionPool).some(key => key.includes('D8'))) return 'hasD8';
-    else return 'hasD11';
-  },
 
   D22dtime: (questionPool) => {
     // Extract numerical values
@@ -241,7 +232,7 @@ const clauses = {
     } else {
       return false;
     }
-  }, 
+  },
   D29feeling: (questionPool) => {
     if (questionPool['D24a'] == 1) {
       return 'sadness';
@@ -253,6 +244,21 @@ const clauses = {
       return '';
     }
   },
+/*  D29feeling: (questionPool) => {
+    let feelings = [];
+
+    if (questionPool['D24a'] == 1) {
+        feelings.push('sadness');
+    }
+    if (questionPool['D24c'] == 1) {
+        feelings.push('discouragement');
+    }
+    if (questionPool['D24e'] == 1) {
+        feelings.push('lack of interest');
+    }
+
+    return feelings.join('/');
+},*/
   D29dInstruction: (questionPool) => {
     if (questionPool['D29'] == 1) {
       return 'Select D29 EQUALS 1';
@@ -293,18 +299,6 @@ const rules = [
       { outcome: 'hasD6', value: 'SAD' },
       { outcome: 'hasD7', value: 'DISCOURAGED OR UNINTERESTED' },
       { outcome: 'hasD8', value: 'DISCOURAGED' },
-      { outcome: 'hasD11', value: 'uninterested in things' }
-    ]
-  },
-    {
-    variable: 'D12feelingv2',
-    conditions: [
-      { outcome: 'hasD3', value: 'SADNESS, DISCOURAGEMENT, OR LACK OF INTEREST' },
-      { outcome: 'hasD4', value: 'SADNESS OR DISCOURAGEMENT' },
-      { outcome: 'hasD5', value: 'SADNESS OR LACK OF INTEREST' },
-      { outcome: 'hasD6', value: 'SADNESS' },
-      { outcome: 'hasD7', value: 'DISCOURAGEMENT OR LACK OF INTEREST' },
-      { outcome: 'hasD8', value: 'DISCOURAGEMENT' },
       { outcome: 'hasD11', value: 'uninterested in things' }
     ]
   },
