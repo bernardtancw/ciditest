@@ -290,12 +290,12 @@ const rules = [
     {
     variable: 'D12feelingv2',
     conditions: [
-      { outcome: 'hasD3', value: 'SADness, DISCOURAGED, OR UNINTERESTED' },
-      { outcome: 'hasD4', value: 'SAD OR DISCOURAGED' },
-      { outcome: 'hasD5', value: 'SAD OR UNINTERESTED' },
-      { outcome: 'hasD6', value: 'SAD' },
-      { outcome: 'hasD7', value: 'DISCOURAGED OR UNINTERESTED' },
-      { outcome: 'hasD8', value: 'DISCOURAGED' },
+      { outcome: 'hasD3', value: 'SADNESS, DISCOURAGEMENT, OR LACK OF INTEREST' },
+      { outcome: 'hasD4', value: 'SADNESS OR DISCOURAGEMENT' },
+      { outcome: 'hasD5', value: 'SADNESS OR LACK OF INTEREST' },
+      { outcome: 'hasD6', value: 'SADNESS' },
+      { outcome: 'hasD7', value: 'DISCOURAGEMENT OR LACK OF INTEREST' },
+      { outcome: 'hasD8', value: 'DISCOURAGEMENT' },
       { outcome: 'hasD11', value: 'uninterested in things' }
     ]
   },
