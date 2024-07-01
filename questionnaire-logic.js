@@ -241,7 +241,7 @@ const clauses = {
     } else {
       return false;
     }
-  },  
+  }, 
   D29feeling: (questionPool) => {
     if (questionPool['D24a'] == 1) {
       return 'sadness';
