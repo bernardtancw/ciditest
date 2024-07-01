@@ -235,11 +235,11 @@ const clauses = {
         count += 1;
       }
     }
-    console.log("this is the d27 count" + count);
+    console.log("this is the total d27 count" + count);
     if (count >= 2) {
       return true;
     } else {
-      return false;
+      return true;
     }
   },
   D29feeling: (questionPool) => {
