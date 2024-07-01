@@ -237,7 +237,8 @@ const clauses = {
     }
     console.log("this is the total d27 count" + count);
     return true;
-  },
+    
+  },  
   D29feeling: (questionPool) => {
     if (questionPool['D24a'] == 1) {
       return 'sadness';
@@ -279,6 +280,7 @@ const clauses = {
     }
   },
 };
+console.log(clauses.D27instructions(questionPool));
 const rules = [
   {
     variable: 'D12feeling',
