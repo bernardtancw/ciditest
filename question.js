@@ -378,7 +378,8 @@ questions = [
   },
   {
     number: "D20",
-    question: "Select 1 if you see D20_instructions_1 appear, else choose 'All others'",
+    question: "Select 1 if you see D20_instructions_1 appear, else choose 'All others'
+      {D20Instruction}",
     options: [
       { value: 1, label: "1", trigger: "D87_1" },
       { value: 2, label: "All others", trigger: "D21" },
