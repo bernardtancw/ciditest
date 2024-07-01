@@ -376,7 +376,7 @@ const rules = [
       { outcome: 'hasD11', value: 'LACK OF INTEREST' }
     ]
   },
-     {
+  {
     variable: 'D_days',
     conditions: [
       { outcome: 'hasD15', value: 'Several Days' },
