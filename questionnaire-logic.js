@@ -1,6 +1,10 @@
 function generateQuestion(questionNumber, question, inputType, options, trigger) {
   if (question.match(/{([^}]*)}/)) {
-    dynamicVariables(questionPool);
+    // if no questionValues declared yet, generate empty array
+    if (typeof questionValues === "undefined") {
+      questionValues = {};
+    }
+    dynamicVariables(questionPool, questionValues);
     let variable = question.match(/{([^}]*)}/)[1];
     question = question.replace(`{${
       variable
@@ -153,11 +157,58 @@ function generateQuestion(questionNumber, question, inputType, options, trigger)
 
 lagQuestionPool = { ...questionPool };
 
+function storeQuestionValues() {
+  var questionValues = [];
+  document.querySelectorAll(".question").forEach(function (element) {
+    if (!element.classList.contains("d-none")) {
+      var select = element.querySelector("select");
+      var responseInput = element.querySelector('input[type="text"]');
+      var checkboxes = element.querySelectorAll(
+        'input[type="checkbox"]:checked'
+      );
+      var radioButton = element.querySelector('input[type="radio"]:checked');
+      var questionNumber = element.getAttribute("data-question"); // Get the question number
+      var selectedOption;
+      if (select) {
+        selectedOption = select.options[select.selectedIndex];
+      } else if (checkboxes.length > 0) {
+        selectedOption = Array.from(checkboxes).map(
+          (checkbox) => checkbox.value
+        );
+      } else {
+        selectedOption = radioButton;
+      }
+      var selectedValue = selectedOption
+        ? Array.isArray(selectedOption)
+          ? selectedOption
+          : selectedOption.value
+        : responseInput
+        ? responseInput.value
+        : ""; // Handle null responseInput
+      // sanitise potential dirty input day for numeric fields
+      if (/^\d/.test(selectedValue) && !selectedValue.includes(",") && selectedValue.includes(" ")) {
+        selectedValue = selectedValue.split(" ")[0];
+      }
+      questionValues.push({ number: questionNumber, value: selectedValue });
+    }
+  });
+
+  return questionValues;
+}
+
+function getQuestionValueByNumber(questionValues, questionNumber) {
+  if (!Array.isArray(questionValues)) {
+    questionValues = Object.values(questionValues); // Convert to array
+  }
+  let question = questionValues.find(q => q.number === questionNumber);
+  return question ? question.value : null; // Returns null if not found
+}
+
 const questionContainer = document.getElementById("questionContainer");
 const questionForm = document.getElementById("questionForm");
 questionForm.addEventListener("change", handleQuestionChange);
 const clauses = {
-  D12feeling: (questionPool) => {
+  D12feeling: (questionPool, {}) => {
     if (Object.keys(questionPool).some(key => key.includes('D3'))) return 'hasD3';
     else if (Object.keys(questionPool).some(key => key.includes('D4'))) return 'hasD4';
     else if (Object.keys(questionPool).some(key => key.includes('D5'))) return 'hasD5';
@@ -166,7 +217,7 @@ const clauses = {
     else if (Object.keys(questionPool).some(key => key.includes('D8'))) return 'hasD8';
     else return 'hasD11';
   },
-    D12feelingv2: (questionPool) => {
+  D12feelingv2: (questionPool, {}) => {
     if (Object.keys(questionPool).some(key => key.includes('D3'))) return 'hasD3';
     else if (Object.keys(questionPool).some(key => key.includes('D4'))) return 'hasD4';
     else if (Object.keys(questionPool).some(key => key.includes('D5'))) return 'hasD5';
@@ -175,7 +226,7 @@ const clauses = {
     else if (Object.keys(questionPool).some(key => key.includes('D8'))) return 'hasD8';
     else return 'hasD11';
   },
-  D22dtime: (questionPool) => {
+  D22dtime: (questionPool, {}) => {
     // Extract numerical values
     const D22dValue = parseInt(questionPool['D22d']?.replace(/\D/g, '') || '0', 10);
     const D22d1Value = parseInt(questionPool['D22d1']?.replace(/\D/g, '') || '0', 10);
@@ -211,14 +262,17 @@ const clauses = {
       return `days`;
     }
   },
-  D27instructions: (questionPool) => {
-    count = 0;
+  D27instructions: ({}, questionValues) => {
+    let count = 0;
     // if ["D24a", [1]], ["D24b", [1]], ["D24c", [1]], ["D24d", [1]], 'or' is selected, then count = 1
-    if (questionPool['D24a'] == 1 || questionPool['D24b'] == 1 || questionPool['D24c'] == 1 || questionPool['D24d'] == 1) {
+    if ((getQuestionValueByNumber(questionValues, 'D24a') == '1') || 
+      (getQuestionValueByNumber(questionValues, 'D24b') == '1') || 
+      (getQuestionValueByNumber(questionValues, 'D24c') == '1') || 
+      (getQuestionValueByNumber(questionValues, 'D24d') == '1')) {
       count += 1;
     }
     // if ["D24e", [1]], ["D24f", [1]], "or", +1
-    if (questionPool['D24e'] == 1 || questionPool['D24f'] == 1) {
+    if (getQuestionValueByNumber(questionValues, 'D24e') == '1' || getQuestionValueByNumber(questionValues, 'D24f') == '1') {
       count += 1;
     }
     // D26 a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,w_1,x,y,z,aa,bb,cc,dd,ee,ff,gg,hh,ii
@@ -230,7 +284,7 @@ const clauses = {
     ];
     // count how many of questions in D26questions are selected as 1
     for (let i = 0; i < D26questions.length; i++) {
-      if (questionPool[D26questions[i]] == 1) {
+      if (getQuestionValueByNumber(questionValues, D26questions[i]) == 1) {
         count += 1;
       }
     }
@@ -241,56 +295,45 @@ const clauses = {
       return false;
     }
   },
-  D29feeling: (questionPool) => {
-    if (questionPool['D24a'] == 1) {
-      return 'sadness';
-    } else if (questionPool['D24c'] == 1) {
-      return 'discouragement';
-    } else if (questionPool['D24e'] == 1) {
-      return 'uninterested';
-    } else {
-      return '';
-    }
-  },
-/*  D29feeling: (questionPool) => {
+  D29feeling: ({}, questionValues) => {
     let feelings = [];
 
-    if (questionPool['D24a'] == 1) {
+    if (getQuestionValueByNumber(questionValues, 'D24a') == '1') {
         feelings.push('sadness');
     }
-    if (questionPool['D24c'] == 1) {
+    if (getQuestionValueByNumber(questionValues, 'D24c') == '1') {
         feelings.push('discouragement');
     }
-    if (questionPool['D24e'] == 1) {
+    if (getQuestionValueByNumber(questionValues, 'D24e') == '1') {
         feelings.push('lack of interest');
     }
 
     return feelings.join('/');
-},*/
-  D29dInstruction: (questionPool) => {
-    if (questionPool['D29'] == 1) {
+  },
+  D29dInstruction: ({}, questionValues) => {
+    if (getQuestionValueByNumber(questionValues, 'D29') == '1') {
       return 'Select D29 EQUALS 1';
     } else {
       return 'Select ALL OTHERS';
     }
   },
-  D37eInstruction: (questionPool) => {
-    if (questionPool['D29'] == 1 || questionPool['D29'] == 2 || questionPool['D29'] == 3) {
+  D37eInstruction: ({}, questionValues) => {
+    if (getQuestionValueByNumber(questionValues, 'D29') == '1' || getQuestionValueByNumber(questionValues, 'D29') == '2' || getQuestionValueByNumber(questionValues, 'D29') == '3') {
       return 'YES';
     } else {
       return 'Select ALL OTHERS';
     }
   },
-  D37gInstruction: (questionPool) => {
-    if (questionPool['D29'] == 1) {
+  D37gInstruction: ({}, questionValues) => {
+    if (getQuestionValueByNumber(questionValues, 'D29') == '1') {
       return 'YES';
     } else {
       return 'Select ALL OTHERS';
     }
   },
   // D37lInstruction
-  D37lInstruction: (questionPool) => {
-    if (questionPool['D29'] == 2) {
+  D37lInstruction: ({}, questionValues) => {
+    if (getQuestionValueByNumber(questionValues, 'D29') == '2') {
       return 'YES';
     } else {
       return 'Select ALL OTHERS';
@@ -310,7 +353,7 @@ const rules = [
       { outcome: 'hasD11', value: 'uninterested in things' }
     ]
   },
-  {
+   {
     variable: 'D12feelingv2',
     conditions: [
       { outcome: 'hasD3', value: 'SADNESS, DISCOURAGEMENT, OR LACK OF INTEREST' },
@@ -380,9 +423,9 @@ const rules = [
   },
 ];
 
-function dynamicVariables(questionPool) {
+function dynamicVariables(questionPool, questionValues) {
   rules.forEach(rule => {
-    const result = clauses[rule.variable](questionPool);
+    const result = clauses[rule.variable](questionPool, questionValues);
     const condition = rule.conditions.find(cond => cond.outcome === result);
     if (condition) {
       window[rule.variable] = condition.value;
@@ -434,6 +477,7 @@ questions.forEach((q) => {
 });
 
 function updateQuestionPool(questionNumber) {
+  questionValues = storeQuestionValues();
 
   const questionElement = document.querySelector(
     `[data-question="${questionNumber}"]`
@@ -702,7 +746,7 @@ function updateQuestionPool(questionNumber) {
     }
   });
 
-  dynamicVariables(questionPool);
+  dynamicVariables(questionPool, questionValues);
   lagQuestionPool = { ...questionPool };
 }
 
@@ -821,45 +865,12 @@ document.getElementById("questionForm").addEventListener("submit", function (eve
     return; // Prevent form submission if the checkbox is not checked
   }
 
-  var formData = [];
-  document.querySelectorAll(".question").forEach(function (element) {
-    if (!element.classList.contains("d-none")) {
-      var select = element.querySelector("select");
-      var responseInput = element.querySelector('input[type="text"]');
-      var checkboxes = element.querySelectorAll(
-        'input[type="checkbox"]:checked'
-      );
-      var radioButton = element.querySelector('input[type="radio"]:checked');
-      var questionNumber = element.getAttribute("data-question"); // Get the question number
-      var selectedOption;
-      if (select) {
-        selectedOption = select.options[select.selectedIndex];
-      } else if (checkboxes.length > 0) {
-        selectedOption = Array.from(checkboxes).map(
-          (checkbox) => checkbox.value
-        );
-      } else {
-        selectedOption = radioButton;
-      }
-      var selectedValue = selectedOption
-        ? Array.isArray(selectedOption)
-          ? selectedOption
-          : selectedOption.value
-        : responseInput
-        ? responseInput.value
-        : ""; // Handle null responseInput
-      // sanitise potential dirty input day for numeric fields
-      if (/^\d/.test(selectedValue) && !selectedValue.includes(",") && selectedValue.includes(" ")) {
-        selectedValue = selectedValue.split(" ")[0];
-      }
-      formData.push({ number: questionNumber, value: selectedValue });
-    }
-  });
+  questionValues = storeQuestionValues();
 
   let openInNewTab = document.getElementById('newTabCheckbox').checked;
   if (openInNewTab) {
     let URL = "results.html?data="
-    window.open(URL + encodeURIComponent(JSON.stringify(formData)));
+    window.open(URL + encodeURIComponent(JSON.stringify(questionValues)));
     
   } else {
     var ID = prompt("Please enter ID:");
@@ -880,7 +891,7 @@ document.getElementById("questionForm").addEventListener("submit", function (eve
     var userData = {
       ID: ID,
       Timestamp: timestamp,
-      FormData: formData
+      FormData: questionValues
     };
 
     localStorage.setItem(ID + "-_" + timestamp, JSON.stringify(userData));
