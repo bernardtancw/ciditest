@@ -318,7 +318,7 @@ const clauses = {
     }
   },
     D20Instruction: ({}, questionValues) => {
-    if (getQuestionValueByNumber(questionValues, 'D17') == '1' || getQuestionValueByNumber(questionValues, 'D18') == '4' || getQuestionValueByNumber(questionValues, 'D19') == '4') {
+    if (getQuestionValueByNumber(questionValues, 'D17') == '1' && getQuestionValueByNumber(questionValues, 'D18') == '4' && getQuestionValueByNumber(questionValues, 'D19') == '4') {
       return 'Select 1';
     } else {
       return 'Select ALL OTHERS';
