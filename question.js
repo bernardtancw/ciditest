@@ -309,7 +309,7 @@ questions = [
   {
     number: "D15",
     question: `Think of times lasting several days or longer when (this problem/these problems) with your mood (was/were)
-        most severe and frequent. During those times, did your feelings of {D12feeling}
+        most severe and frequent. During those times, did your feelings of {D12feelingv2}
         usually last less than 1 hour, between 1 and 3 hours, between 3 and 5 hours, or more than 5 hours?`,
     options: [
       { label: "Less than 1 hour", value: 1, trigger: "D87_1" },
@@ -323,7 +323,7 @@ questions = [
   {
     number: "D16",
     question: `Think of times lasting two weeks or longer when (this problem/these problems) with your mood (was/were)
-        most severe and frequent. During those times, did your feelings of {D12feeling} usually last less than 1 hour, between 1 and 3 hours, between 3 and 5 hours, or more than 5 hours?`,
+        most severe and frequent. During those times, did your feelings of {D12feelingv2} usually last less than 1 hour, between 1 and 3 hours, between 3 and 5 hours, or more than 5 hours?`,
     options: [
       { label: "Less than 1 hour", value: 1, trigger: "D87_1" },
       { label: "1 to 3 hours", value: 2, trigger: "D17" },
