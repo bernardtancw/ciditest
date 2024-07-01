@@ -166,7 +166,15 @@ const clauses = {
     else if (Object.keys(questionPool).some(key => key.includes('D8'))) return 'hasD8';
     else return 'hasD11';
   },
-
+    D12feelingv2: (questionPool) => {
+    if (Object.keys(questionPool).some(key => key.includes('D3'))) return 'hasD3';
+    else if (Object.keys(questionPool).some(key => key.includes('D4'))) return 'hasD4';
+    else if (Object.keys(questionPool).some(key => key.includes('D5'))) return 'hasD5';
+    else if (Object.keys(questionPool).some(key => key.includes('D6'))) return 'hasD6';
+    else if (Object.keys(questionPool).some(key => key.includes('D7'))) return 'hasD7';
+    else if (Object.keys(questionPool).some(key => key.includes('D8'))) return 'hasD8';
+    else return 'hasD11';
+  },
   D22dtime: (questionPool) => {
     // Extract numerical values
     const D22dValue = parseInt(questionPool['D22d']?.replace(/\D/g, '') || '0', 10);
@@ -300,6 +308,18 @@ const rules = [
       { outcome: 'hasD7', value: 'DISCOURAGED OR UNINTERESTED' },
       { outcome: 'hasD8', value: 'DISCOURAGED' },
       { outcome: 'hasD11', value: 'uninterested in things' }
+    ]
+  },
+  {
+    variable: 'D12feelingv2',
+    conditions: [
+      { outcome: 'hasD3', value: 'SADNESS, DISCOURAGEMENT, OR LACK OF INTEREST' },
+      { outcome: 'hasD4', value: 'SADNESS OR DISCOURAGEMENT' },
+      { outcome: 'hasD5', value: 'SADNESS OR LACK OF INTEREST' },
+      { outcome: 'hasD6', value: 'SADNESS' },
+      { outcome: 'hasD7', value: 'DISCOURAGEMENT OR LACK OF INTEREST' },
+      { outcome: 'hasD8', value: 'DISCOURAGEMENT' },
+      { outcome: 'hasD11', value: 'LACK OF INTEREST' }
     ]
   },
   {
