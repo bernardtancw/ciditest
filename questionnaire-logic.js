@@ -228,7 +228,7 @@ const clauses = {
   },
     D_days: (questionPool, {}) => {
     if (Object.keys(questionPool).some(key => key.includes('D15'))) return 'hasD15';
-    else if (Object.keys(questionPool).some(key => key.includes('D15'))) return 'hasD15';
+    else if (Object.keys(questionPool).some(key => key.includes('D16'))) return 'hasD16';
   },
   D22dtime: (questionPool, {}) => {
     // Extract numerical values
