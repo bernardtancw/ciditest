@@ -405,6 +405,13 @@ const rules = [
       { outcome: 'Select ALL OTHERS', value: 'Select ALL OTHERS' }
     ]
   },
+    {
+    variable: 'D20Instruction',
+    conditions: [
+      { outcome: 'Select 1', value: 'Select 1 for D20' },
+      { outcome: 'Select ALL OTHERS', value: 'Select ALL OTHERS for D20' }
+    ]
+  },
   //(*D29 EQUALS “1 - 3”; Select 'All others' if you do not see D37e_instructions)
   {
     variable: 'D37eInstruction',
