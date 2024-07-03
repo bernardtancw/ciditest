@@ -207,7 +207,6 @@ function getQuestionValueByNumber(questionValues, questionNumber) {
 const questionContainer = document.getElementById("questionContainer");
 const questionForm = document.getElementById("questionForm");
 questionForm.addEventListener("change", handleQuestionChange);
-var D29feelings_value = ''; // global variable to store D29 feelings value
 const clauses = {
   D12feeling: (questionPool, {}) => {
     if (Object.keys(questionPool).some(key => key.includes('D3'))) return 'hasD3';
@@ -308,13 +307,19 @@ const clauses = {
     if (getQuestionValueByNumber(questionValues, 'D24e') == '1') {
         feelings.push('lack of interest');
     }
-    D29feelings_value = feelings.join('/');
 
-    return feelings.length > 0;
+    return feelings.join('/');
   },
   D29dInstruction: ({}, questionValues) => {
     if (getQuestionValueByNumber(questionValues, 'D29') == '1') {
       return 'Select D29 EQUALS 1';
+    } else {
+      return 'Select ALL OTHERS';
+    }
+  },
+    D20Instruction: ({}, questionValues) => {
+    if (getQuestionValueByNumber(questionValues, 'D17') == '1' && getQuestionValueByNumber(questionValues, 'D18') == '4' && getQuestionValueByNumber(questionValues, 'D19') == '4') {
+      return 'Select 1';
     } else {
       return 'Select ALL OTHERS';
     }
@@ -355,7 +360,7 @@ const rules = [
       { outcome: 'hasD11', value: 'uninterested in things' }
     ]
   },
-  {
+   {
     variable: 'D12feelingv2',
     conditions: [
       { outcome: 'hasD3', value: 'SADNESS, DISCOURAGEMENT, OR LACK OF INTEREST' },
@@ -387,8 +392,10 @@ const rules = [
   {
     variable: 'D29feeling',
     conditions: [
-      { outcome: true, value: `${D29feelings_value}` },
-      { outcome: false, value: '' }
+      { outcome: 'sadness', value: 'sadness' },
+      { outcome: 'discouragement', value: 'discouragement' },
+      { outcome: 'uninterested', value: 'lack of interest' },
+      { outcome: '', value: '' }
     ]
   },
   {
@@ -396,6 +403,13 @@ const rules = [
     conditions: [
       { outcome: 'Select D29 EQUALS 1', value: 'Select D29 EQUALS 1' },
       { outcome: 'Select ALL OTHERS', value: 'Select ALL OTHERS' }
+    ]
+  },
+    {
+    variable: 'D20Instruction',
+    conditions: [
+      { outcome: 'Select 1', value: 'Select 1 for D20' },
+      { outcome: 'Select ALL OTHERS', value: 'Select ALL OTHERS for D20' }
     ]
   },
   //(*D29 EQUALS “1 - 3”; Select 'All others' if you do not see D37e_instructions)
