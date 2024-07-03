@@ -376,6 +376,13 @@ const rules = [
       { outcome: 'hasD11', value: 'LACK OF INTEREST' }
     ]
   },
+   {
+    variable: 'D_freq',
+    conditions: [
+      { outcome: 'hasD15', value: 'several days' },
+      { outcome: 'hasD16', value: 'two weeks' }
+    ]
+  },  
   {
     variable: 'D22dtime',
     conditions: [
