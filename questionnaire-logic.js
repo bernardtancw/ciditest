@@ -226,10 +226,6 @@ const clauses = {
     else if (Object.keys(questionPool).some(key => key.includes('D8'))) return 'hasD8';
     else return 'hasD11';
   },
-    D_days: (questionPool, {}) => {
-    if (Object.keys(questionPool).some(key => key.includes('D15'))) return 'hasD15';
-    else if (Object.keys(questionPool).some(key => key.includes('D16'))) return 'hasD16';
-  },
   D22dtime: (questionPool, {}) => {
     // Extract numerical values
     const D22dValue = parseInt(questionPool['D22d']?.replace(/\D/g, '') || '0', 10);
@@ -374,13 +370,6 @@ const rules = [
       { outcome: 'hasD7', value: 'DISCOURAGEMENT OR LACK OF INTEREST' },
       { outcome: 'hasD8', value: 'DISCOURAGEMENT' },
       { outcome: 'hasD11', value: 'LACK OF INTEREST' }
-    ]
-  },
-  {
-    variable: 'D_days',
-    conditions: [
-      { outcome: 'hasD15', value: 'Several Days' },
-      { outcome: 'hasD16', value: 'two weeks' },
     ]
   },
   {
