@@ -1702,7 +1702,7 @@ questions = [
   {
     number: "D62_3",
     question: `(RB, PG 6-8) For the next questions I need you to think about the period of {D22dtime} or more
-    during the past 12 months when your {D12feelingv2} was most severe and
+    during the past 12 months when your {D12feeling} was most severe and
     frequent. Please read each of the fourteen sets of statements on page 6-8 in your booklet and circle the one
     response for each of the fourteen that best describes how you were during those {D22dtime}. As
     you finish each set, please tell me the number of the statement you have circled.`,
@@ -1712,7 +1712,7 @@ questions = [
   {
     number: "D64",
     question: `(RB, PG 6_8) For the next questions I need you to think about the period of {D_days} or more
-    during the past 12 months when your {D12feelingv2} was most severe and
+    during the past 12 months when your {D12feeling} was most severe and
     frequent. I'm going to read fourteen series of statements. Please pick the one statement in each series that
     comes closest to your experience during that worst {D_days}. `,
     inputType: "display",
@@ -1970,11 +1970,11 @@ being {D12feeling} in the past 12 months?) <br>Put the selected number in numeri
   {
     number: "D66",
     question: `(RB, PG 9) Think about the period lasting one month or longer in the past 12 months when your
-    {D12feelingv2} was most severe. Using the 0 to 10 scale on page 9 of your
+    {D12feeling} was most severe. Using the 0 to 10 scale on page 9 of your
     booklet, where 0 means no interference and 10 means very severe interference, what number describes how
-    much your {D12feelingv2} interfered with each of the following activities during
+    much your {D12feeling} interfered with each of the following activities during
     that period?
-    <br>(IF NEC: How much did your {D12feelingv2} interfere with (ACTIVITY)
+    <br>(IF NEC: How much did your {D12feeling} interfere with (ACTIVITY)
     during that period?)`,
     inputType: "display",
     trigger: "D66.scale",
@@ -2053,13 +2053,13 @@ being {D12feeling} in the past 12 months?) <br>Put the selected number in numeri
   {
     number: "D68",
     question: `About how many days out of 365 in the past 12 months were you totally unable to work or carry out your normal
-    activities because of your {D12feelingv2}? (IF NEC: You can use any number between 0 and 365 to answer.)`,
+    activities because of your {D12feeling}? (IF NEC: You can use any number between 0 and 365 to answer.)`,
     inputType: "response",
     trigger: "D72",
   },
   {
     "number": "D72",
-    "question": `Did you ever in your life talk to a medical doctor or other professional about your {D12feelingv2}?<br>(By professional we mean psychologists, counselors, spiritual
+    "question": `Did you ever in your life talk to a medical doctor or other professional about your {D12feeling}?<br>(By professional we mean psychologists, counselors, spiritual
     advisors, herbalists, acupuncturists, and other healing professionals.)`,
     "options": [
       { "label": "Yes", "value": 1, "trigger": "D72a" },
@@ -2070,13 +2070,13 @@ being {D12feeling} in the past 12 months?) <br>Put the selected number in numeri
   },
   {
     "number": "D72a",
-    "question": `How old were you the first time [you talked to a professional about your {D12feelingv2}]?`,
+    "question": `How old were you the first time [you talked to a professional about your {D12feeling}]?`,
     "inputType": "response",
     "trigger": "D84",
   },
   {
     number: "D84",
-    question: `Did you ever get treatment for your {D12feelingv2} that you considered helpful
+    question: `Did you ever get treatment for your {D12feeling} that you considered helpful
     or effective?`,
     options: [
       { label: "Yes", value: 1, trigger: "D84a" },
@@ -2087,13 +2087,13 @@ being {D12feeling} in the past 12 months?) <br>Put the selected number in numeri
   },
   {
     "number": "D84a",
-    "question": `How old were you the first time [you got helpful treatment for your {D12feelingv2}]? `,
+    "question": `How old were you the first time [you got helpful treatment for your {D12feeling}]? `,
     "inputType": "response",
     "trigger": "D84b",
   },
   {
     "number": "D84b",
-    "question": `How many professionals did you ever talk to about your {D12feelingv2},
+    "question": `How many professionals did you ever talk to about your {D12feeling},
     up to and including the first time you got helpful treatment? `,
     "inputType": "response",
     options: [
@@ -2104,7 +2104,7 @@ being {D12feeling} in the past 12 months?) <br>Put the selected number in numeri
   },
   {
     "number": "D84c",
-    "question": `How many professionals did you ever talk to about your {D12feelingv2}?`,
+    "question": `How many professionals did you ever talk to about your {D12feeling}?`,
     "inputType": "response",
     options: [
       { label: "Don't know", value: 98, "trigger": "D86" },
@@ -2114,7 +2114,7 @@ being {D12feeling} in the past 12 months?) <br>Put the selected number in numeri
   },
   {
     "number": "D86",
-    "question": `Did you receive professional treatment for your {D12feelingv2} at any time in the
+    "question": `Did you receive professional treatment for your {D12feeling} at any time in the
     past 12 months? `,
     "options": [
       { label: "Yes", value: 1, trigger: "D87" },
@@ -2125,7 +2125,7 @@ being {D12feeling} in the past 12 months?) <br>Put the selected number in numeri
   },
   {
     "number": "D87",
-    "question": `Were you ever hospitalized overnight for your {D12feelingv2}? 
+    "question": `Were you ever hospitalized overnight for your {D12feeling}? 
     `,
     "options": [
       { label: "Yes", value: 1, trigger: "D87a" },
@@ -2136,7 +2136,7 @@ being {D12feeling} in the past 12 months?) <br>Put the selected number in numeri
   },
   {
     "number": "D87a",
-    "question": `How old were you the first time [you were hospitalized overnight because of your {D12feelingv2}]? 
+    "question": `How old were you the first time [you were hospitalized overnight because of your {D12feeling}]? 
     `,
     "inputType": "response",
     "options": [
