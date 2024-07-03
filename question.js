@@ -157,7 +157,7 @@ questions = [
     number: "D5",
     inputType: "radio",
     question: `INTERVIEWER INSTRUCTION: FOR D1b, <br>
-        USE KEY PHRASE “SAD OR DISCOURAGED" THROUGHOUT THE SECTION`,
+        USE KEY PHRASE “SAD OR UNINTERESTED" THROUGHOUT THE SECTION`,
     options: [
       { label: "Yes", value: "Yes", trigger: "D12" },
       { label: "No", value: "No", trigger: "D12" },
