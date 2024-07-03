@@ -209,15 +209,15 @@ const questionForm = document.getElementById("questionForm");
 questionForm.addEventListener("change", handleQuestionChange);
 const clauses = {
   D12feeling: (questionPool, {}) => {
-    if (Object.keys(questionPool).some(key => key.includes('D3'))) return 'hasD3';
-    else if (Object.keys(questionPool).some(key => key.includes('D4'))) return 'hasD4';
-    else if (Object.keys(questionPool).some(key => key.includes('D5'))) return 'hasD5';
-    else if (Object.keys(questionPool).some(key => key.includes('D6'))) return 'hasD6';
-    else if (Object.keys(questionPool).some(key => key.includes('D7'))) return 'hasD7';
-    else if (Object.keys(questionPool).some(key => key.includes('D8'))) return 'hasD8';
+    if (questionPool.hasOwnProperty('D3')) return 'hasD3';
+    else if (questionPool.hasOwnProperty('D4')) return 'hasD4';
+    else if (questionPool.hasOwnProperty('D5')) return 'hasD5';
+    else if (questionPool.hasOwnProperty('D6')) return 'hasD6';
+    else if (questionPool.hasOwnProperty('D7')) return 'hasD7';
+    else if (questionPool.hasOwnProperty('D8')) return 'hasD8';
     else return 'hasD11';
   },
-  D12feelingv2: (questionPool) => {
+  D12feelingv2: (questionPool, {}) => {
     if (questionPool.hasOwnProperty('D3')) return 'hasD3';
     else if (questionPool.hasOwnProperty('D4')) return 'hasD4';
     else if (questionPool.hasOwnProperty('D5')) return 'hasD5';
