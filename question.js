@@ -372,8 +372,13 @@ questions = [
     ],
   },
   {
+    number: "D20_instructions_1",
+    question: "Select 1 for question D20",
+    inputType: "display",
+  },
+  {
     number: "D20",
-    question: `Please {D20Instruction}`,
+    question: "Select 1 if you see D20_instructions_1 appear, else choose 'All others'",
     options: [
       { value: 1, label: "1", trigger: "D87_1" },
       { value: 2, label: "All others", trigger: "D21" },
@@ -394,7 +399,8 @@ questions = [
   },
   {
     number: "D22",
-    question: `(READ SLOWLY) Please think of an episode of being {D12feeling} lasting (sdays) or longer when you also had the largest number of these other problems at the same time. Is there
+    question: `(READ SLOWLY) Please think of an episode of being {D12feeling} lasting (several days/two weeks)
+            or longer when you also had the largest number of these other problems at the same time. Is there
             one particular episode of this sort that stands out in your mind as the worst one you ever had?`,
     options: [
       { label: "Yes", value: 1, trigger: "D22a" },
@@ -1007,7 +1013,7 @@ questions = [
   },
   {
     number: "D29",
-    question: `When I use the word “episode” in the next questions, I mean a time lasting  or longer
+    question: `When I use the word “episode” in the next questions, I mean a time lasting (several days/two weeks) or longer
         when nearly every day you were {D29feeling} and also had some of the other problems
         we talked about. The episode ends when you no longer have the problems for two weeks in a row. With this
         definition in mind, about how many different episodes did you ever have in your entire life? 
@@ -1097,9 +1103,9 @@ questions = [
   },
   {
     number: "D37b1",
-    question: `“ALL MY LIFE” OR “AS LONG AS I CAN REMEMBER,”`,
+    question: `“ALL MY LIFE” OR “AS LONG AS I CAN REMEMBER, PROBE: Was it before you first started school?”`,
     options: [
-      { label: "Yes", value: 1, trigger: "D37c1" },
+      { label: "Yes", value: 1, trigger: "D37b234" },
       { label: "No", value: 5, trigger: "D37b234" },
       { label: "Don't Know", value: 998, trigger: "D37b234" },
       { label: "Refused", value: 999, trigger: "D37b234" },
@@ -1711,10 +1717,10 @@ questions = [
   },
   {
     number: "D64",
-    question: `(RB, PG 6_8) For the next questions I need you to think about the period of (sdays) or more
+    question: `(RB, PG 6_8) For the next questions I need you to think about the period of (several days/two weeks) or more
     during the past 12 months when your {D12feeling} was most severe and
     frequent. I'm going to read fourteen series of statements. Please pick the one statement in each series that
-    comes closest to your experience during that worst (sdays). `,
+    comes closest to your experience during that worst (several days/two weeks). `,
     inputType: "display",
     trigger: "D64a.info",
   },
@@ -1730,7 +1736,7 @@ questions = [
   },
   {
     number: "D64a",
-    question: `(IF NEC: Which of these four statements was most true of you during your worst (sdays) of
+    question: `(IF NEC: Which of these four statements was most true of you during your worst (several days/two weeks) of
     being {D12feeling} in the past 12 months?) <br>Put the selected number in numeric form. (One => 1)`,
     inputType: "response",
     trigger: "D64b.info",
@@ -1747,7 +1753,7 @@ questions = [
   },
   {
     number: "D64b",
-    question: `(IF NEC: Which of these four statements was most true of you during your worst (sdays) of
+    question: `(IF NEC: Which of these four statements was most true of you during your worst (several days/two weeks) of
     being {D12feeling} in the past 12 months?) <br>Put the selected number in numeric form. (One => 1)`,
     inputType: "response",
     trigger: "D64c.info",
@@ -1765,7 +1771,7 @@ questions = [
   },
   {
     number: "D64c",
-    question: `(IF NEC: Which of these four statements was most true of you during your worst (sdays) of
+    question: `(IF NEC: Which of these four statements was most true of you during your worst (several days/two weeks) of
 being {D12feeling} in the past 12 months?) <br>Put the selected number in numeric form. (One => 1)`,
     inputType: "response",
     trigger: "D64d.info",
@@ -1782,7 +1788,7 @@ being {D12feeling} in the past 12 months?) <br>Put the selected number in numeri
   },
   {
     number: "D64d",
-    question: `(IF NEC: Which of these four statements was most true of you during your worst (sdays) of
+    question: `(IF NEC: Which of these four statements was most true of you during your worst (several days/two weeks) of
     being {D12feeling} in the past 12 months?) <br>Put the selected number in numeric form. (One => 1)`,
     inputType: "response",
     trigger: "D64e.info",
@@ -1799,7 +1805,7 @@ being {D12feeling} in the past 12 months?) <br>Put the selected number in numeri
   },
   {
     number: "D64e",
-    question: `(IF NEC: Which of these four statements was most true of you during your worst (sdays) of
+    question: `(IF NEC: Which of these four statements was most true of you during your worst (several days/two weeks) of
     being {D12feeling} in the past 12 months?) <br>Put the selected number in numeric form. (One => 1)`,
     inputType: "response",
     trigger: "D64f.info",
@@ -1816,7 +1822,7 @@ being {D12feeling} in the past 12 months?) <br>Put the selected number in numeri
   },
   {
     number: "D64f",
-    question: `(IF NEC: Which of these four statements was most true of you during your worst (sdays) of
+    question: `(IF NEC: Which of these four statements was most true of you during your worst (several days/two weeks) of
     being {D12feeling} in the past 12 months?) <br>Put the selected number in numeric form. (One => 1)`,
     inputType: "response",
     trigger: "D64g.info",
@@ -1833,7 +1839,7 @@ being {D12feeling} in the past 12 months?) <br>Put the selected number in numeri
   },
   {
     number: "D64g",
-    question: `(IF NEC: Which of these four statements was most true of you during your worst (sdays) of
+    question: `(IF NEC: Which of these four statements was most true of you during your worst (several days/two weeks) of
     being {D12feeling} in the past 12 months?) <br>Put the selected number in numeric form. (One => 1)`,
     inputType: "response",
     trigger: "D64h.info",
@@ -1850,7 +1856,7 @@ being {D12feeling} in the past 12 months?) <br>Put the selected number in numeri
   },
   {
     number: "D64h",
-    question: `(IF NEC: Which of these four statements was most true of you during your worst (sdays) of
+    question: `(IF NEC: Which of these four statements was most true of you during your worst (several days/two weeks)) of
     being {D12feeling} in the past 12 months?) <br>Put the selected number in numeric form. (One => 1)`,
     inputType: "response",
     trigger: "D64i.info",
@@ -1867,7 +1873,7 @@ being {D12feeling} in the past 12 months?) <br>Put the selected number in numeri
   },
   {
     number: "D64i",
-    question: `(IF NEC: Which of these four statements was most true of you during your worst (sdays) of
+    question: `(IF NEC: Which of these four statements was most true of you during your worst (several days/two weeks) of
     being {D12feeling} in the past 12 months?) <br>Put the selected number in numeric form. (One => 1)`,
     inputType: "response",
     trigger: "D64j.info",
@@ -1888,7 +1894,7 @@ being {D12feeling} in the past 12 months?) <br>Put the selected number in numeri
   },
   {
     number: "D64j",
-    question: `(IF NEC: Which of these seven statements was most true of you during your worst (sdays) of
+    question: `(IF NEC: Which of these seven statements was most true of you during your worst (several days/two weeks) of
     being {D12feeling} in the past 12 months?) <br>Put the selected number in numeric form. (One => 1)`,
     inputType: "response",
     trigger: "D64k.info",
@@ -1908,7 +1914,7 @@ being {D12feeling} in the past 12 months?) <br>Put the selected number in numeri
   },
   {
     number: "D64k",
-    question: `(IF NEC: Which of these seven statements was most true of you during your worst (sdays) of
+    question: `(IF NEC: Which of these seven statements was most true of you during your worst (several days/two weeks) of
     being {D12feeling} in the past 12 months?) <br>Put the selected number in numeric form. (One => 1)`,
     inputType: "response",
     trigger: "D64l.info",
@@ -1927,7 +1933,7 @@ being {D12feeling} in the past 12 months?) <br>Put the selected number in numeri
   },
   {
     number: "D64l",
-    question: `(IF NEC: Which of these four statements was most true of you during your worst (sdays) of
+    question: `(IF NEC: Which of these four statements was most true of you during your worst (several days/two weeks) of
     being {D12feeling} in the past 12 months?) <br>Put the selected number in numeric form. (One => 1)`,
     inputType: "response",
     trigger: "D64m.info",
@@ -1945,7 +1951,7 @@ being {D12feeling} in the past 12 months?) <br>Put the selected number in numeri
   },
   {
     number: "D64m",
-    question: `(IF NEC: Which of these four statements was most true of you during your worst (sdays) of
+    question: `(IF NEC: Which of these four statements was most true of you during your worst (several days/two weeks) of
     being {D12feeling} in the past 12 months?) <br>Put the selected number in numeric form. (One => 1)`,
     inputType: "response",
     trigger: "D64n.info",
@@ -1962,7 +1968,7 @@ being {D12feeling} in the past 12 months?) <br>Put the selected number in numeri
   },
   {
     number: "D64n",
-    question: `(IF NEC: Which of these four statements was most true of you during your worst (sdays) of
+    question: `(IF NEC: Which of these four statements was most true of you during your worst (several days/two weeks) of
     being {D12feeling} in the past 12 months?) <br>Put the selected number in numeric form. (One => 1)`,
     inputType: "response",
     trigger: "D66",
