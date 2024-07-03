@@ -1013,7 +1013,7 @@ questions = [
   },
   {
     number: "D29",
-    question: `When I use the word “episode” in the next questions, I mean a time lasting (several days/two weeks) or longer
+    question: `When I use the word “episode” in the next questions, I mean a time lasting {D_freq} or longer
         when nearly every day you were {D12feeling} and also had some of the other problems
         we talked about. The episode ends when you no longer have the problems for two weeks in a row. With this
         definition in mind, about how many different episodes did you ever have in your entire life? 
@@ -1717,7 +1717,7 @@ questions = [
   },
   {
     number: "D64",
-    question: `(RB, PG 6_8) For the next questions I need you to think about the period of (several days/two weeks) or more
+    question: `(RB, PG 6_8) For the next questions I need you to think about the period of {D_freq} or more
     during the past 12 months when your {D12feelingv2} was most severe and
     frequent. I'm going to read fourteen series of statements. Please pick the one statement in each series that
     comes closest to your experience during that worst (several days/two weeks). `,
