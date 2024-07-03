@@ -2076,13 +2076,13 @@ being {D12feeling} in the past 12 months?) <br>Put the selected number in numeri
   },
   {
     "number": "D72a",
-    "question": `How old were you the first time [you talked to a professional about your {D12feeling}]?`,
+    "question": `How old were you the first time [you talked to a professional about your {D12feelingv2}]?`,
     "inputType": "response",
     "trigger": "D84",
   },
   {
     number: "D84",
-    question: `Did you ever get treatment for your {D12feeling} that you considered helpful
+    question: `Did you ever get treatment for your {D12feelingv2} that you considered helpful
     or effective?`,
     options: [
       { label: "Yes", value: 1, trigger: "D84a" },
@@ -2093,13 +2093,13 @@ being {D12feeling} in the past 12 months?) <br>Put the selected number in numeri
   },
   {
     "number": "D84a",
-    "question": `How old were you the first time [you got helpful treatment for your {D12feeling}]? `,
+    "question": `How old were you the first time [you got helpful treatment for your {D12feelingv2}]? `,
     "inputType": "response",
     "trigger": "D84b",
   },
   {
     "number": "D84b",
-    "question": `How many professionals did you ever talk to about your {D12feeling},
+    "question": `How many professionals did you ever talk to about your {D12feelingv2},
     up to and including the first time you got helpful treatment? `,
     "inputType": "response",
     options: [
@@ -2110,7 +2110,7 @@ being {D12feeling} in the past 12 months?) <br>Put the selected number in numeri
   },
   {
     "number": "D84c",
-    "question": `How many professionals did you ever talk to about your {D12feeling}?`,
+    "question": `How many professionals did you ever talk to about your {D12feelingv2}?`,
     "inputType": "response",
     options: [
       { label: "Don't know", value: 98, "trigger": "D86" },
@@ -2120,7 +2120,7 @@ being {D12feeling} in the past 12 months?) <br>Put the selected number in numeri
   },
   {
     "number": "D86",
-    "question": `Did you receive professional treatment for your {D12feeling} at any time in the
+    "question": `Did you receive professional treatment for your {D12feelingv2} at any time in the
     past 12 months? `,
     "options": [
       { label: "Yes", value: 1, trigger: "D87" },
@@ -2131,7 +2131,7 @@ being {D12feeling} in the past 12 months?) <br>Put the selected number in numeri
   },
   {
     "number": "D87",
-    "question": `Were you ever hospitalized overnight for your {D12feeling}? 
+    "question": `Were you ever hospitalized overnight for your {D12feelingv2}? 
     `,
     "options": [
       { label: "Yes", value: 1, trigger: "D87a" },
@@ -2142,7 +2142,7 @@ being {D12feeling} in the past 12 months?) <br>Put the selected number in numeri
   },
   {
     "number": "D87a",
-    "question": `How old were you the first time [you were hospitalized overnight because of your {D12feeling}]? 
+    "question": `How old were you the first time [you were hospitalized overnight because of your {D12feelingv2}]? 
     `,
     "inputType": "response",
     "options": [
