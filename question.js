@@ -1737,7 +1737,7 @@ questions = [
   {
     number: "D64a",
     question: `(IF NEC: Which of these four statements was most true of you during your worst (several days/two weeks) of
-    being {D12feeling} in the past 12 months?) <br>Put the selected number in numeric form. (One => 1)`,
+    being {D12feelingv2} in the past 12 months?) <br>Put the selected number in numeric form. (One => 1)`,
     inputType: "response",
     trigger: "D64b.info",
   },
@@ -1754,7 +1754,7 @@ questions = [
   {
     number: "D64b",
     question: `(IF NEC: Which of these four statements was most true of you during your worst (several days/two weeks) of
-    being {D12feeling} in the past 12 months?) <br>Put the selected number in numeric form. (One => 1)`,
+    being {D12feelingv2} in the past 12 months?) <br>Put the selected number in numeric form. (One => 1)`,
     inputType: "response",
     trigger: "D64c.info",
   },
@@ -1772,7 +1772,7 @@ questions = [
   {
     number: "D64c",
     question: `(IF NEC: Which of these four statements was most true of you during your worst (several days/two weeks) of
-being {D12feeling} in the past 12 months?) <br>Put the selected number in numeric form. (One => 1)`,
+being {D12feelingv2} in the past 12 months?) <br>Put the selected number in numeric form. (One => 1)`,
     inputType: "response",
     trigger: "D64d.info",
   },
