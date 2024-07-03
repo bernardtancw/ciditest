@@ -1978,7 +1978,7 @@ being {D12feeling} in the past 12 months?) <br>Put the selected number in numeri
     question: `(RB, PG 9) Think about the period lasting one month or longer in the past 12 months when your
     {D12feelingv2} was most severe. Using the 0 to 10 scale on page 9 of your
     booklet, where 0 means no interference and 10 means very severe interference, what number describes how
-    much your {D12feeling} interfered with each of the following activities during
+    much your {D12feelingv2} interfered with each of the following activities during
     that period?
     <br>(IF NEC: How much did your {D12feeling} interfere with (ACTIVITY)
     during that period?)`,
@@ -2065,7 +2065,7 @@ being {D12feeling} in the past 12 months?) <br>Put the selected number in numeri
   },
   {
     "number": "D72",
-    "question": `Did you ever in your life talk to a medical doctor or other professional about your {D12feeling}?<br>(By professional we mean psychologists, counselors, spiritual
+    "question": `Did you ever in your life talk to a medical doctor or other professional about your {D12feelingv2}?<br>(By professional we mean psychologists, counselors, spiritual
     advisors, herbalists, acupuncturists, and other healing professionals.)`,
     "options": [
       { "label": "Yes", "value": 1, "trigger": "D72a" },
