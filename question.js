@@ -1737,7 +1737,7 @@ questions = [
   {
     number: "D64a",
     question: `(IF NEC: Which of these four statements was most true of you during your worst (several days/two weeks) of
-    being {D12feelingv2} in the past 12 months?) <br>Put the selected number in numeric form. (One => 1)`,
+    being {D12feeling} in the past 12 months?) <br>Put the selected number in numeric form. (One => 1)`,
     inputType: "response",
     trigger: "D64b.info",
   },
@@ -1754,7 +1754,7 @@ questions = [
   {
     number: "D64b",
     question: `(IF NEC: Which of these four statements was most true of you during your worst (several days/two weeks) of
-    being {D12feelingv2} in the past 12 months?) <br>Put the selected number in numeric form. (One => 1)`,
+    being {D12feeling} in the past 12 months?) <br>Put the selected number in numeric form. (One => 1)`,
     inputType: "response",
     trigger: "D64c.info",
   },
@@ -1772,7 +1772,7 @@ questions = [
   {
     number: "D64c",
     question: `(IF NEC: Which of these four statements was most true of you during your worst (several days/two weeks) of
-being {D12feelingv2} in the past 12 months?) <br>Put the selected number in numeric form. (One => 1)`,
+being {D12feeling} in the past 12 months?) <br>Put the selected number in numeric form. (One => 1)`,
     inputType: "response",
     trigger: "D64d.info",
   },
@@ -1789,7 +1789,7 @@ being {D12feelingv2} in the past 12 months?) <br>Put the selected number in nume
   {
     number: "D64d",
     question: `(IF NEC: Which of these four statements was most true of you during your worst (several days/two weeks) of
-    being {D12feelingv2} in the past 12 months?) <br>Put the selected number in numeric form. (One => 1)`,
+    being {D12feeling} in the past 12 months?) <br>Put the selected number in numeric form. (One => 1)`,
     inputType: "response",
     trigger: "D64e.info",
   },
@@ -1806,7 +1806,7 @@ being {D12feelingv2} in the past 12 months?) <br>Put the selected number in nume
   {
     number: "D64e",
     question: `(IF NEC: Which of these four statements was most true of you during your worst (several days/two weeks) of
-    being {D12feelingv2} in the past 12 months?) <br>Put the selected number in numeric form. (One => 1)`,
+    being {D12feeling} in the past 12 months?) <br>Put the selected number in numeric form. (One => 1)`,
     inputType: "response",
     trigger: "D64f.info",
   },
@@ -1823,7 +1823,7 @@ being {D12feelingv2} in the past 12 months?) <br>Put the selected number in nume
   {
     number: "D64f",
     question: `(IF NEC: Which of these four statements was most true of you during your worst (several days/two weeks) of
-    being {D12feelingv2} in the past 12 months?) <br>Put the selected number in numeric form. (One => 1)`,
+    being {D12feeling} in the past 12 months?) <br>Put the selected number in numeric form. (One => 1)`,
     inputType: "response",
     trigger: "D64g.info",
   },
@@ -1840,7 +1840,7 @@ being {D12feelingv2} in the past 12 months?) <br>Put the selected number in nume
   {
     number: "D64g",
     question: `(IF NEC: Which of these four statements was most true of you during your worst (several days/two weeks) of
-    being {D12feelingv2} in the past 12 months?) <br>Put the selected number in numeric form. (One => 1)`,
+    being {D12feeling} in the past 12 months?) <br>Put the selected number in numeric form. (One => 1)`,
     inputType: "response",
     trigger: "D64h.info",
   },
@@ -1857,7 +1857,7 @@ being {D12feelingv2} in the past 12 months?) <br>Put the selected number in nume
   {
     number: "D64h",
     question: `(IF NEC: Which of these four statements was most true of you during your worst (several days/two weeks)) of
-    being {D12feelingv2} in the past 12 months?) <br>Put the selected number in numeric form. (One => 1)`,
+    being {D12feeling} in the past 12 months?) <br>Put the selected number in numeric form. (One => 1)`,
     inputType: "response",
     trigger: "D64i.info",
   },
@@ -1874,7 +1874,7 @@ being {D12feelingv2} in the past 12 months?) <br>Put the selected number in nume
   {
     number: "D64i",
     question: `(IF NEC: Which of these four statements was most true of you during your worst (several days/two weeks) of
-    being {D12feelingv2} in the past 12 months?) <br>Put the selected number in numeric form. (One => 1)`,
+    being {D12feeling} in the past 12 months?) <br>Put the selected number in numeric form. (One => 1)`,
     inputType: "response",
     trigger: "D64j.info",
   },
@@ -1895,7 +1895,7 @@ being {D12feelingv2} in the past 12 months?) <br>Put the selected number in nume
   {
     number: "D64j",
     question: `(IF NEC: Which of these seven statements was most true of you during your worst (several days/two weeks) of
-    being {D12feelingv2} in the past 12 months?) <br>Put the selected number in numeric form. (One => 1)`,
+    being {D12feeling} in the past 12 months?) <br>Put the selected number in numeric form. (One => 1)`,
     inputType: "response",
     trigger: "D64k.info",
   },
@@ -1915,7 +1915,7 @@ being {D12feelingv2} in the past 12 months?) <br>Put the selected number in nume
   {
     number: "D64k",
     question: `(IF NEC: Which of these seven statements was most true of you during your worst (several days/two weeks) of
-    being {D12feelingv2} in the past 12 months?) <br>Put the selected number in numeric form. (One => 1)`,
+    being {D12feeling} in the past 12 months?) <br>Put the selected number in numeric form. (One => 1)`,
     inputType: "response",
     trigger: "D64l.info",
   },
@@ -1934,7 +1934,7 @@ being {D12feelingv2} in the past 12 months?) <br>Put the selected number in nume
   {
     number: "D64l",
     question: `(IF NEC: Which of these four statements was most true of you during your worst (several days/two weeks) of
-    being {D12feelingv2} in the past 12 months?) <br>Put the selected number in numeric form. (One => 1)`,
+    being {D12feeling} in the past 12 months?) <br>Put the selected number in numeric form. (One => 1)`,
     inputType: "response",
     trigger: "D64m.info",
   },
@@ -1952,7 +1952,7 @@ being {D12feelingv2} in the past 12 months?) <br>Put the selected number in nume
   {
     number: "D64m",
     question: `(IF NEC: Which of these four statements was most true of you during your worst (several days/two weeks) of
-    being {D12feelingv2} in the past 12 months?) <br>Put the selected number in numeric form. (One => 1)`,
+    being {D12feeling} in the past 12 months?) <br>Put the selected number in numeric form. (One => 1)`,
     inputType: "response",
     trigger: "D64n.info",
   },
@@ -1969,14 +1969,14 @@ being {D12feelingv2} in the past 12 months?) <br>Put the selected number in nume
   {
     number: "D64n",
     question: `(IF NEC: Which of these four statements was most true of you during your worst (several days/two weeks) of
-    being {D12feelingv2} in the past 12 months?) <br>Put the selected number in numeric form. (One => 1)`,
+    being {D12feeling} in the past 12 months?) <br>Put the selected number in numeric form. (One => 1)`,
     inputType: "response",
     trigger: "D66",
   },
   {
     number: "D66",
     question: `(RB, PG 9) Think about the period lasting one month or longer in the past 12 months when your
-    {D12feeling} was most severe. Using the 0 to 10 scale on page 9 of your
+    {D12feelingv2} was most severe. Using the 0 to 10 scale on page 9 of your
     booklet, where 0 means no interference and 10 means very severe interference, what number describes how
     much your {D12feeling} interfered with each of the following activities during
     that period?
@@ -2059,7 +2059,7 @@ being {D12feelingv2} in the past 12 months?) <br>Put the selected number in nume
   {
     number: "D68",
     question: `About how many days out of 365 in the past 12 months were you totally unable to work or carry out your normal
-    activities because of your {D12feeling}? (IF NEC: You can use any number between 0 and 365 to answer.)`,
+    activities because of your {D12feelingv2}? (IF NEC: You can use any number between 0 and 365 to answer.)`,
     inputType: "response",
     trigger: "D72",
   },
