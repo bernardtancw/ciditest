@@ -226,6 +226,10 @@ const clauses = {
     else if (questionPool.hasOwnProperty('D8')) return 'hasD8';
     else return 'hasD11';
   },
+  D_freq: (questionPool, {}) => {
+    if (questionPool.hasOwnProperty('D15')) return 'hasD15';
+    else if (questionPool.hasOwnProperty('D16')) return 'hasD16';
+  },
   D22dtime: (questionPool, {}) => {
     // Extract numerical values
     const D22dValue = parseInt(questionPool['D22d']?.replace(/\D/g, '') || '0', 10);
