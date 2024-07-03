@@ -985,7 +985,7 @@ questions = [
   {
     number: "D28",
     question: `You mentioned having (two of the/a number of the) problems I just asked you about. How much did your
-        {D12feeling} and these other problems interfere with either your work, your social
+        {D12feelingv2} and these other problems interfere with either your work, your social
          life, or your personal relationships during that episode- not at all, a little, some, a lot, or extremely?`,
     options: [
       { label: "Not at all", value: 1, trigger: "D29" },
@@ -1000,7 +1000,7 @@ questions = [
   {
     number: "D28a",
     question: `How often during that episode were you unable to carry out your daily activities because of your
-        {D12feeling} - often, sometimes, rarely, or never? 
+        {D12feelingv2} - often, sometimes, rarely, or never? 
         `,
     options: [
       { label: "OFTEN", value: 1, trigger: "D29" },
