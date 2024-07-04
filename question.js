@@ -1013,7 +1013,7 @@ questions = [
   },
   {
     number: "D29",
-    question: `When I use the word “episode” in the next questions, I mean a time lasting {D_freq} or longer
+    question: `When I use the word “episode” in the next questions, I mean a time lasting several days/two weeks or longer
         when nearly every day you were {D12feeling} and also had some of the other problems
         we talked about. The episode ends when you no longer have the problems for two weeks in a row. With this
         definition in mind, about how many different episodes did you ever have in your entire life? 
