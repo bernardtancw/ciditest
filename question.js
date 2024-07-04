@@ -399,7 +399,7 @@ questions = [
   },
   {
     number: "D22",
-    question: `(READ SLOWLY) Please think of an episode of being {D12feeling} lasting {D_freq}
+    question: `(READ SLOWLY) Please think of an episode of being {D12feeling} lasting (several days/two weeks)
             or longer when you also had the largest number of these other problems at the same time. Is there
             one particular episode of this sort that stands out in your mind as the worst one you ever had?`,
     options: [
@@ -1720,7 +1720,7 @@ questions = [
     question: `(RB, PG 6_8) For the next questions I need you to think about the period of xxx or more
     during the past 12 months when your {D12feelingv2} was most severe and
     frequent. I'm going to read fourteen series of statements. Please pick the one statement in each series that
-    comes closest to your experience during that worst {D_freq}. `,
+    comes closest to your experience during that worst (several days/two weeks). `,
     inputType: "display",
     trigger: "D64a.info",
   },
