@@ -387,6 +387,13 @@ const rules = [
     ]
   },
   {
+    variable: 'D_freq',
+    conditions: [
+      { outcome: 'hasD15', value: 'several days' },
+      { outcome: 'hasD16', value: 'two weeks' }
+    ]
+  },    
+  {
     variable: 'D27instructions',
     conditions: [
       { outcome: true, value: 'Select COUNT EQUALS TWO OR MORE' },
