@@ -399,7 +399,7 @@ questions = [
   },
   {
     number: "D22",
-    question: `(READ SLOWLY) Please think of an episode of being {D12feeling} lasting (several days/two weeks)
+    question: `(READ SLOWLY) Please think of an episode of being {D12feeling} lasting {D_freq}
             or longer when you also had the largest number of these other problems at the same time. Is there
             one particular episode of this sort that stands out in your mind as the worst one you ever had?`,
     options: [
