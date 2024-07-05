@@ -328,6 +328,15 @@ const clauses = {
       return 'Select ALL OTHERS';
     }
   },
+    D38b1Instructions: ({}, questionValues) => {
+    if ([2,3].includes(getQuestionValueByNumber(questionValues, 'D29')) || getQuestionValueByNumber(questionValues, 'D37d') !== "") {
+      return 'show2';
+    } else if (getQuestionValueByNumber(questionValues, 'D29') == '1') {
+      return 'show1';
+    } else {
+      return 'show3';
+    }
+  },
   D37eInstruction: ({}, questionValues) => {
     if (getQuestionValueByNumber(questionValues, 'D29') == '1' || getQuestionValueByNumber(questionValues, 'D29') == '2' || getQuestionValueByNumber(questionValues, 'D29') == '3') {
       return 'YES';
