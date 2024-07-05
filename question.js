@@ -1039,7 +1039,7 @@ questions = [
   },
   {
     number: "D29a",
-    question: `Episodes of this sort sometimes occur as a result of physical causes such as physical illness or injury or the
+    question: `Episodes of this sort sometimes occur as a result of physical causes such as physical illness or injury or the {D38b1Instructions}
         use of medication, drugs, or alcohol. Do you think your episode(s) of {D29feeling} ever occurred as the result of such physical causes?`,
     options: [
       { label: "Yes", value: 1, trigger: "D29b" },
