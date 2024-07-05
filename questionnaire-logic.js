@@ -329,9 +329,9 @@ const clauses = {
     }
   },
   D38b1Instructions: ({}, questionValues) => {
-    if (getQuestionValueByNumber(questionValues, 'D29') === 1) {
+    if (getQuestionValueByNumber(questionValues, 'D29') == '1') {
       return 'show1';
-    } else if (getQuestionValueByNumber(questionValues, 'D29') === 2 || getQuestionValueByNumber(questionValues, 'D29') === 3) {
+    } else if (getQuestionValueByNumber(questionValues, 'D29') == '2' || getQuestionValueByNumber(questionValues, 'D29') == '3') {
       return 'show2';
     } else {
       return 'show3';
