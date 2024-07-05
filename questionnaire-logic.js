@@ -455,6 +455,14 @@ const rules = [
       { outcome: 'Select ALL OTHERS', value: 'Select ALL OTHERS' }
     ]
   },
+  {
+    variable: 'D38b1Instructions',
+    conditions: [
+      { outcome: 'show1', value: 'D29 = 1, Please select D29 Equals 1' },
+      { outcome: 'show2', value: 'D29 = 2 or 3, Please select D29 Equals '2' or '3'' },
+      { outcome: 'show3', value: 'Select ALL OTHERS' }
+    ]
+  },  
 ];
 
 function dynamicVariables(questionPool, questionValues) {
