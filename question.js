@@ -1713,7 +1713,7 @@ questions = [
     frequent. Please read each of the fourteen sets of statements on page 6-8 in your booklet and circle the one
     response for each of the fourteen that best describes how you were during those {D22dtime}. As
     you finish each set, please tell me the number of the statement you have circled.`,
-    inputType: "response",
+    inputType: "display",
     trigger: "D64a.info",
   },
   {
