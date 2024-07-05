@@ -359,6 +359,13 @@ const clauses = {
       return 'Select ALL OTHERS';
     }
   },
+  D38info: ({}, questionValues) => {
+    if (getQuestionValueByNumber(questionValues, 'D38') == '1') {
+      return 'eq1';
+    } else {
+      return 'oth';
+    }
+  },
 };
 const rules = [
   {
@@ -447,7 +454,7 @@ const rules = [
       { outcome: 'Select ALL OTHERS', value: 'Select ALL OTHERS' }
     ]
   },
-  // D37lInstruction
+  // 
   {
     variable: 'D37lInstruction',
     conditions: [
@@ -462,7 +469,14 @@ const rules = [
       { outcome: 'show2', value: "D29 = 2 or 3, Please select D29 Equals '2' or '3'" },
       { outcome: 'show3', value: "Select ALL OTHERS" }
     ]
-  },  
+  },
+  {
+    variable: 'D38info',
+    conditions: [
+      { outcome: 'eq1', value: 'D39 equals 1' },
+      { outcome: 'oth', value: 'Select ALL OTHERS' }
+    ]
+  },
 ];
 
 function dynamicVariables(questionPool, questionValues) {
