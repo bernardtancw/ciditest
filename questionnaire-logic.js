@@ -329,10 +329,10 @@ const clauses = {
     }
   },
     D38b1Instructions: ({}, questionValues) => {
-    if ([2,3].includes(getQuestionValueByNumber(questionValues, 'D29')) || getQuestionValueByNumber(questionValues, 'D37d') !== "") {
-      return 'show2';
-    } else if (getQuestionValueByNumber(questionValues, 'D29') == '1') {
+    if (getQuestionValueByNumber(questionValues, 'D29') === 1) {
       return 'show1';
+    } else if (getQuestionValueByNumber(questionValues, 'D29') === 2 || getQuestionValueByNumber(questionValues, 'D29') === 3) {
+      return 'show2';
     } else {
       return 'show3';
     }
@@ -458,9 +458,9 @@ const rules = [
   {
     variable: 'D38b1Instructions',
     conditions: [
-      { outcome: 'show1', value: 'D29 = 1, Please select D29 Equals 1' },
-      { outcome: 'show2', value: 'D29 = 2 or 3, Please select D29 Equals '2' or '3'' },
-      { outcome: 'show3', value: 'Select ALL OTHERS' }
+      { outcome: 'show1', value: "D29 = 1, Please select D29 Equals 1" },
+      { outcome: 'show2', value: "D29 = 2 or 3, Please select D29 Equals '2' or '3'" },
+      { outcome: 'show3', value: "Select ALL OTHERS" }
     ]
   },  
 ];
