@@ -139,10 +139,8 @@ questions = [
     question: `INTERVIEWER INSTRUCTION: FOR D1a, <br>
         USE KEY PHRASE “SAD, DISCOURAGED, OR UNINTERESTED” THROUGHOUT THE SECTION`,
     options: [
-      // { label: "Yes", value: "Yes", trigger: "D12" },
-      // { label: "No", value: "No", trigger: "D12" },
-      { label: "Yes", value: "Yes", trigger: "D29" },
-      { label: "No", value: "No", trigger: "D29" },
+      { label: "Yes", value: "Yes", trigger: "D12" },
+      { label: "No", value: "No", trigger: "D12" },
     ],
   },
   {
@@ -1041,7 +1039,7 @@ questions = [
   },
   {
     number: "D29a",
-    question: `Episodes of this sort sometimes occur as a result of physical causes such as physical illness or injury or the {D38b1Instructions}
+    question: `Episodes of this sort sometimes occur as a result of physical causes such as physical illness or injury or the
         use of medication, drugs, or alcohol. Do you think your episode(s) of {D29feeling} ever occurred as the result of such physical causes?`,
     options: [
       { label: "Yes", value: 1, trigger: "D29b" },
@@ -1437,24 +1435,24 @@ questions = [
     inputType: "response",
     trigger: "D38b_1",
   },
-  {
-    number: "D38b_1_instructions_1",
-    question: `Select 1 for D38b_1`,
-    inputType: "display",
-  },
-  {
-    number: "D38b_1_instructions_2",
-    question: `Select 2 for D38b_1`,
-    inputType: "display",
-  },
-  {
-    number: "D38b_1_instructions_3",
-    question: `Select 3 for D38b_1`,
-    inputType: "display",
-  },
+  // {
+  //   number: "D38b_1_instructions_1",
+  //   question: `Select 1 for D38b_1`,
+  //   inputType: "display",
+  // },
+  // {
+  //   number: "D38b_1_instructions_2",
+  //   question: `Select 2 for D38b_1`,
+  //   inputType: "display",
+  // },
+  // {
+  //   number: "D38b_1_instructions_3",
+  //   question: `Select 3 for D38b_1`,
+  //   inputType: "display",
+  // },
   {
     number: "D38b_1",
-    question: `INTERVIEWER CHECKPOINT: (SEE *D38b_1_instructions)`,
+    question: `INTERVIEWER CHECKPOINT: Please select {D38b1Instructions}`,
     options: [
       { label: "1 [D29 EQUALS '1']", value: 1, trigger: "D62_2" },
       { label: "2 [D29 EQUALS '2' or '3']", value: 2, trigger: "D54" },
