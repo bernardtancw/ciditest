@@ -911,7 +911,7 @@ document.addEventListener("change", function (event) {
       });
     }
   }
-  else if (target && target.matches('.response-input input[type="number"]')) {
+  else if (target && target.matches('.response-input input[type="response"]')) {
     const questionElement = target.closest(".question");
     if (questionElement === null) {
       console.error("numeric input change handler: questionElement is null", {
