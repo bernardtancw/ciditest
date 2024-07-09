@@ -911,6 +911,30 @@ document.addEventListener("change", function (event) {
       });
     }
   }
+  else if (target && target.matches('.response-input input[type="number"]')) {
+    const questionElement = target.closest(".question");
+    if (questionElement === null) {
+      console.error("numeric input change handler: questionElement is null", {
+        target,
+      });
+      return;
+    }
+    const questionNumber = questionElement.getAttribute("data-question");
+    const responseInput = document.getElementById(`q${questionNumber}response`);
+    const rangeFeedback = document.getElementById("rangeFeedback");
+
+    // Check if the current question requires range validation
+    const currentQuestion = questions.find(q => q.number === questionNumber);
+    if (currentQuestion && currentQuestion.requiresRange) {
+      const value = parseInt(target.value, 10);
+      if (value < currentQuestion.min || value > currentQuestion.max) {
+        rangeFeedback.textContent = `Value must be between ${currentQuestion.min} and ${currentQuestion.max}`;
+        rangeFeedback.style.color = 'red';
+      } else {
+        rangeFeedback.textContent = '';
+      }
+    }
+  }
 });
 
 document.getElementById("questionForm").addEventListener("submit", function (event) {
