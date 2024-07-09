@@ -139,8 +139,10 @@ questions = [
     question: `INTERVIEWER INSTRUCTION: FOR D1a, <br>
         USE KEY PHRASE “SAD, DISCOURAGED, OR UNINTERESTED” THROUGHOUT THE SECTION`,
     options: [
-      { label: "Yes", value: "Yes", trigger: "D12" },
-      { label: "No", value: "No", trigger: "D12" },
+      // { label: "Yes", value: "Yes", trigger: "D12" },
+      // { label: "No", value: "No", trigger: "D12" },
+      { label: "Yes", value: "Yes", trigger: "D29" },
+      { label: "No", value: "No", trigger: "D29" },
     ],
   },
   {
@@ -1019,7 +1021,9 @@ questions = [
         we talked about. The episode ends when you no longer have the problems for two weeks in a row. With this
         definition in mind, about how many different episodes did you ever have in your entire life? 
         `,
-    inputType: "response",
+    inputType: "number",
+    min: 0,
+    max: 4,
     trigger: "D29a",
   },
   {
