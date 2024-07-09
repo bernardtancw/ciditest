@@ -1021,10 +1021,11 @@ questions = [
         we talked about. The episode ends when you no longer have the problems for two weeks in a row. With this
         definition in mind, about how many different episodes did you ever have in your entire life? 
         `,
-    inputType: "response",
+    inputType: "number",
     min: 0,
     max: 4,
     trigger: "D29a",
+    requiresRange: true,
   },
   {
     number: "D29a_detail_1",
