@@ -1,4 +1,4 @@
-function generateQuestion(questionNumber, question, inputType, options, trigger) {
+function generateQuestion(questionNumber, question, inputType, options, trigger, min, max) {
   if (question.match(/{([^}]*)}/)) {
     // if no questionValues declared yet, generate empty array
     if (typeof questionValues === "undefined") {
@@ -29,12 +29,8 @@ function generateQuestion(questionNumber, question, inputType, options, trigger)
         options.forEach((option) => {
           html += `
                     <div class="form-check">
-                        <input class="form-check-input" type="${inputType}" name="question${questionNumber}" id="q${questionNumber}option${
-            option.value
-          }" value="${option.value}" data-trigger="${option.trigger || ""}">
-                        <label class="form-check-label" for="q${questionNumber}option${
-            option.value
-          }">${option.label}</label>
+                        <input class="form-check-input" type="${inputType}" name="question${questionNumber}" id="q${questionNumber}option${option.value}" value="${option.value}" data-trigger="${option.trigger || ""}">
+                        <label class="form-check-label" for="q${questionNumber}option${option.value}">${option.label}</label>
                     </div>
                 `;
         });
@@ -75,6 +71,12 @@ function generateQuestion(questionNumber, question, inputType, options, trigger)
           { questionNumber, options }
         );
       }
+      break;
+      case "number":
+      html += `
+                <div class="response-input">
+                    <input class="form-control" type="number" id="q${questionNumber}response" name="question${questionNumber}response" placeholder="Your response" min="${min || ""}" max="${max || ""}" data-trigger="${trigger || ""}">
+                </div>`;
       break;
       case "response":
         html += `
