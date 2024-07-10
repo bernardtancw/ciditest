@@ -514,6 +514,15 @@ function dynamicVariables(questionPool, questionValues) {
     regenerateQuestions(questionNumber);
   });
 }
+      console.error(`No matching condition for outcome ${result} in variable ${rule.variable}`);
+    }
+  });
+
+  // Trigger regeneration of affected questions
+  Object.keys(questionPool).forEach(questionNumber => {
+    regenerateQuestions(questionNumber);
+  });
+}
 
 function regenerateQuestions(questionNumber) {
   const questionElement = document.querySelector(`[data-question="${questionNumber}"]`);
