@@ -935,6 +935,8 @@ document.addEventListener("change", function (event) {
         rangeFeedback.textContent = '';
       }
     }
+    // Proceed with the trigger action
+    updateQuestionPool(questionNumber);
   }
 });
 
