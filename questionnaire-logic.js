@@ -809,6 +809,30 @@ function updateQuestionPool(questionNumber) {
   lagQuestionPool = { ...questionPool };
 }
 
+function renderQuestion(question) {
+  let inputField;
+  if (question.inputType === 'number') {
+    inputField = `
+      <input type="number" id="q${question.number}response" class="response-input"
+             min="${question.min || ''}" max="${question.max || ''}" required>
+      <span id="rangeFeedback"></span>
+    `;
+  } else {
+    inputField = `
+      <input type="${question.inputType}" id="q${question.number}response" class="response-input" required>
+    `;
+  }
+
+  form.innerHTML = `
+    <div class="question" data-question="${question.number}">
+      <label>${question.question}</label>
+      ${inputField}
+      <button type="button" class="proceed-btn" data-trigger="${question.trigger || ''}">Proceed</button>
+      <button type="submit" class="submit-btn">Submit</button>
+    </div>
+  `;
+}
+
 function handleQuestionChange(event) {
   const target = event.target;
   const questionElement = target.closest(".question");
