@@ -1,9 +1,12 @@
 questions = [
   {
     number: "SC1",
-    inputType: "response",
+    inputType: "number",
     question:
       "The first few questions are for background purposes. How old are you?",
+    min: 18,
+    max: 85,
+    requiresRange: true,
   },
   {
     number: "SC21",
@@ -1021,7 +1024,7 @@ questions = [
         we talked about. The episode ends when you no longer have the problems for two weeks in a row. With this
         definition in mind, about how many different episodes did you ever have in your entire life? 
         `,
-    inputType: "response",
+    inputType: "number",
     min: 0,
     max: 4,
     trigger: "D29a",
