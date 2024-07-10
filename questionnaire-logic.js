@@ -76,7 +76,6 @@ function generateQuestion(questionNumber, question, inputType, options, trigger,
       html += `
                 <div class="response-input">
                     <input class="form-control" type="number" id="q${questionNumber}response" name="question${questionNumber}response" placeholder="Your response" min="${min || ""}" max="${max || ""}" data-trigger="${trigger || ""}">
-                    <button type="button" class="btn btn-primary proceed-btn" data-trigger="${trigger || ""}">Proceed</button>
                 </div>`;
       break;
       case "response":
@@ -576,8 +575,21 @@ function updateQuestionPool(questionNumber) {
     const radioInput = document.querySelector(
       `[data-question="${questionNumber}"] input[type="radio"]:checked`
     );
+    if (responseInput && responseInput.value !== '') {
+      const responseValue = responseInput.value;
+      const isNumber = !isNaN(responseValue) && responseValue.trim() !== '';
 
-    if (responseInput.value !== '') {
+      if (isNumber) {
+        // Handle numeric value
+        const numValue = parseFloat(responseValue);
+        const min = responseInput.getAttribute("min");
+        const max = responseInput.getAttribute("max");
+
+        if ((min && numValue < min) || (max && numValue > max)) {
+          alert(`Please enter a number between ${min} and ${max}.`);
+          return;
+        }
+      } 
         selectedOptions = [responseInput.getAttribute("data-trigger")];
     } else if (radioInput) {
         selectedOptions = [radioInput.getAttribute("data-trigger")];
