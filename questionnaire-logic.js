@@ -76,6 +76,7 @@ function generateQuestion(questionNumber, question, inputType, options, trigger,
       html += `
                 <div class="response-input">
                     <input class="form-control" type="number" id="q${questionNumber}response" name="question${questionNumber}response" placeholder="Your response" min="${min || ""}" max="${max || ""}" data-trigger="${trigger || ""}">
+                    <button type="button" class="btn btn-primary proceed-btn" data-trigger="${trigger || ""}">Proceed</button>
                 </div>`;
       break;
       case "response":
