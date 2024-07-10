@@ -4,10 +4,9 @@ questions = [
     inputType: "response",
     question:
       "The first few questions are for background purposes. How old are you?",
-    requireRange = true,
     min: 18,
     max: 85,
-    trigger: D29, 
+    requireRange = true, 
   },
   {
     number: "SC21",
