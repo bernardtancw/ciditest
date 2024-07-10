@@ -485,6 +485,25 @@ function dynamicVariables(questionPool, questionValues) {
     const condition = rule.conditions.find(cond => cond.outcome === result);
     if (condition) {
       window[rule.variable] = condition.value;
+    } else {function dynamicVariables(questionPool, questionValues) {
+  rules.forEach(rule => {
+    const result = clauses[rule.variable](questionPool, questionValues);
+    const condition = rule.conditions.find(cond => {
+      if (cond.type === 'rangeCheck') {
+        // Assuming [`questionValues`](command:_github.copilot.openSymbolFromReferences?%5B%7B%22%24mid%22%3A1%2C%22fsPath%22%3A%22c%3A%5C%5CUsers%5C%5CBernard%5C%5CDesktop%5C%5Ccidi%5C%5Ccopilot%5C%5Ccloned%20bt%5C%5Cciditest%5C%5Cquestionnaire-logic.js%22%2C%22_sep%22%3A1%2C%22external%22%3A%22file%3A%2F%2F%2Fc%253A%2FUsers%2FBernard%2FDesktop%2Fcidi%2Fcopilot%2Fcloned%2520bt%2Fciditest%2Fquestionnaire-logic.js%22%2C%22path%22%3A%22%2Fc%3A%2FUsers%2FBernard%2FDesktop%2Fcidi%2Fcopilot%2Fcloned%20bt%2Fciditest%2Fquestionnaire-logic.js%22%2C%22scheme%22%3A%22file%22%7D%2C%7B%22line%22%3A481%2C%22character%22%3A40%7D%5D "questionnaire-logic.js") is an object where keys are variable names and values are their responses
+        const inputValue = questionValues[rule.variable];
+        return inputValue >= cond.min && inputValue <= cond.max ? 'withinRange' : 'outOfRange';
+      } else {
+        return cond.outcome === result;
+      }
+    });
+
+    if (condition) {
+      if (condition.type === 'rangeCheck' && condition.outcome === 'outOfRange') {
+        console.error(`Input for ${rule.variable} is out of the specified range (${condition.min}-${condition.max}).`);
+      } else {
+        window[rule.variable] = condition.value;
+      }
     } else {
       console.error(`No matching condition for outcome ${result} in variable ${rule.variable}`);
     }
