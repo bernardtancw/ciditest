@@ -911,7 +911,7 @@ document.addEventListener("change", function (event) {
       });
     }
   }
-  else if (target && target.matches('.response-input input[type="response"]')) {
+  else if (target && target.matches('.response-input input[type="number"]')) {
     const questionElement = target.closest(".question");
     if (questionElement === null) {
       console.error("numeric input change handler: questionElement is null", {
@@ -930,6 +930,7 @@ document.addEventListener("change", function (event) {
       if (value < currentQuestion.min || value > currentQuestion.max) {
         rangeFeedback.textContent = `Value must be between ${currentQuestion.min} and ${currentQuestion.max}`;
         rangeFeedback.style.color = 'red';
+        return;
       } else {
         rangeFeedback.textContent = '';
       }
