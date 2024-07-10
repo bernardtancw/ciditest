@@ -82,9 +82,8 @@ function generateQuestion(questionNumber, question, inputType, options, trigger,
       case "response":
         html += `
                   <div class="response-input">
-                      <input class="form-control" type="text" id="q${questionNumber}response" name="question${questionNumber}response" placeholder="Your response" data-trigger="${
-          trigger || ""
-        }">
+                      // <input class="form-control" type="text" id="q${questionNumber}response" name="question${questionNumber}response" placeholder="Your response" data-trigger="${trigger || ""}">
+                      <input class="form-control" type="number" id="q${questionNumber}response" name="question${questionNumber}response" placeholder="Your response" min="${min || ""}" max="${max || ""}" data-trigger="${trigger || ""}">
               `;
   
         if (Array.isArray(options) && options.length > 0) {
@@ -552,6 +551,8 @@ function updateQuestionPool(questionNumber) {
     ? "select"
     : questionElement.querySelector('input[type="text"]')
     ? "response"
+    : questionElement.querySelector('input[type="number"]')
+    ? "number"
     : questionElement.querySelector('input[type="checkbox"]')
     ? "checkbox"
     : questionElement.querySelector(".display-text")
