@@ -6,7 +6,8 @@ questions = [
       "The first few questions are for background purposes. How old are you?",
     min: 18,
     max: 85,
-    requireRange = true, 
+    trigger: D29,
+    requiresRange = true, 
   },
   {
     number: "SC21",
