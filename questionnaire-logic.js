@@ -918,6 +918,81 @@ document.addEventListener("click", function (event) {
     updateQuestionPool(questionNumber);
   }
 });
+// validation rules for free responses
+const validationRules = {
+  'SC1': { min: 21, max: 100 },
+  'D64a': { min: 1, max: 4, allowBlank: true },
+  'D64b': { min: 1, max: 4, allowBlank: true },
+  'D64c': { min: 1, max: 4, allowBlank: true },
+  'D64d': { min: 1, max: 4, allowBlank: true },
+  'D64e': { min: 1, max: 4, allowBlank: true },
+  'D64f': { min: 1, max: 4, allowBlank: true },
+  'D64g': { min: 1, max: 4, allowBlank: true },
+  'D64h': { min: 1, max: 4, allowBlank: true },
+  'D64i': { min: 1, max: 4, allowBlank: true },
+  'D64l': { min: 1, max: 4, allowBlank: true },
+  'D64m': { min: 1, max: 4, allowBlank: true },
+  'D64n': { min: 1, max: 4, allowBlank: true },
+  'D64j': { min: 1, max: 7, allowBlank: true },
+  'D64k': { min: 1, max: 7, allowBlank: true },
+  'D66a': { min: 0, max: 10, allowBlank: true },
+  'D66b': { min: 0, max: 10, allowBlank: true },
+  'D66c': { min: 0, max: 10, allowBlank: true },
+  'D66d': { min: 0, max: 10, allowBlank: true },
+  'D68': { min: 0, max: 365, allowBlank: true },
+  'D87_1': { min: 0, max: 365 },
+  'D22a' : { min: 0, max: 100, lessThanOrEqualTo: 'SC1' },
+  'D22c' : { min: 0, max: 100, lessThanOrEqualTo: 'SC1' },
+  'D37a' : { min: 0, max: 100, lessThanOrEqualTo: 'SC1' },
+  'D37b' : { min: 0, max: 100, lessThanOrEqualTo: 'SC1' },
+  'D38c' : { min: 0, max: 100, lessThanOrEqualTo: 'SC1' },
+  'D42' : { min: 0, max: 100, lessThanOrEqualTo: 'SC1' },
+  'D47' : { min: 0, max: 100, lessThanOrEqualTo: 'SC1' },
+  'D59a' : { min: 0, max: 100, lessThanOrEqualTo: 'SC1' },
+  'D72a' : { min: 0, max: 100, lessThanOrEqualTo: 'SC1' },
+  'D84a' : { min: 0, max: 100, lessThanOrEqualTo: 'SC1' },
+  'D87a' : { min: 0, max: 100, lessThanOrEqualTo: 'SC1' },
+};
+
+// Step 3: Function to validate input (Modified)
+function validateInput(questionNumber, value, allValues) {
+  const rules = validationRules[questionNumber];
+  if (!rules) return true;
+  if (rules.allowBlank && value.trim() === '') return true;
+  const numValue = parseInt(value, 10);
+  if (numValue < rules.min || numValue > rules.max) return { isValid: false, errorMessage: `Value must be between ${rules.min} and ${rules.max}.` };
+  if (rules.lessThanOrEqualTo) {
+    const compareValue = parseInt(document.getElementById(`q${rules.lessThanOrEqualTo}response`).value, 10);
+    if (numValue > compareValue) return { isValid: false, errorMessage: `Value must be less than or equal to ${rules.lessThanOrEqualTo}.` };
+  }
+  return { isValid: true };
+}
+
+// Step 4: Attach event listeners to inputs that need validation (Modified)
+Object.keys(validationRules).forEach(questionNumber => {
+  const inputElement = document.getElementById(`q${questionNumber}response`);
+  if (inputElement) {
+    inputElement.addEventListener('input', function() {
+      const validation = validateInput(questionNumber, inputElement.value);
+      const isValid = validation.isValid;
+      const errorMessage = validation.errorMessage;
+      // Update UI based on validation
+      let errorMessageElement = document.getElementById(`q${questionNumber}error`);
+      if (isValid) {
+        if (errorMessageElement) errorMessageElement.style.display = 'none';
+      } else {
+        if (!errorMessageElement) {
+          errorMessageElement = document.createElement('div');
+          errorMessageElement.id = `q${questionNumber}error`;
+          errorMessageElement.style.color = 'red';
+          inputElement.parentNode.insertBefore(errorMessageElement, inputElement.nextSibling);
+        }
+        errorMessageElement.textContent = errorMessage;
+        errorMessageElement.style.display = 'block';
+      }
+    });
+  }
+});
 
 // Event listener for response input and radio box inputs
 document.addEventListener("change", function (event) {
