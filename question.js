@@ -139,8 +139,8 @@ questions = [
     question: `INTERVIEWER INSTRUCTION: FOR D1a, <br>
         USE KEY PHRASE “SAD, DISCOURAGED, OR UNINTERESTED” THROUGHOUT THE SECTION`,
     options: [
-      // { label: "Yes", value: "Yes", trigger: "D12" },
-      { label: "Yes", value: "Yes", trigger: "D62_3" },
+      { label: "Yes", value: "Yes", trigger: "D12" },
+     // { label: "Yes", value: "Yes", trigger: "D62_3" },
     ],
   },
   {
