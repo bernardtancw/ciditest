@@ -4,9 +4,6 @@ questions = [
     inputType: "response",
     question:
       "The first few questions are for background purposes. How old are you?",
-    // min: 18,
-    // max: 85,
-    // requiresRange: true,
   },
   {
     number: "SC21",
@@ -142,10 +139,8 @@ questions = [
     question: `INTERVIEWER INSTRUCTION: FOR D1a, <br>
         USE KEY PHRASE “SAD, DISCOURAGED, OR UNINTERESTED” THROUGHOUT THE SECTION`,
     options: [
-      { label: "Yes", value: "Yes", trigger: "D12" },
-      { label: "No", value: "No", trigger: "D12" },
-      // { label: "Yes", value: "Yes", trigger: "D29" },
-      // { label: "No", value: "No", trigger: "D29" },
+      // { label: "Yes", value: "Yes", trigger: "D12" },
+      { label: "Yes", value: "Yes", trigger: "D62_3" },
     ],
   },
   {
@@ -155,7 +150,6 @@ questions = [
         USE KEY PHRASE “SAD OR DISCOURAGED" THROUGHOUT THE SECTION`,
     options: [
       { label: "Yes", value: "Yes", trigger: "D12" },
-      { label: "No", value: "No", trigger: "D12" },
     ],
   },
   {
@@ -165,7 +159,6 @@ questions = [
         USE KEY PHRASE “SAD OR UNINTERESTED" THROUGHOUT THE SECTION`,
     options: [
       { label: "Yes", value: "Yes", trigger: "D12" },
-      { label: "No", value: "No", trigger: "D12" },
     ],
   },
   {
@@ -175,7 +168,6 @@ questions = [
         USE KEY PHRASE “SAD" THROUGHOUT THE SECTION`,
     options: [
       { label: "Yes", value: "Yes", trigger: "D12" },
-      { label: "No", value: "No", trigger: "D12" },
     ],
   },
   {
@@ -185,7 +177,6 @@ questions = [
         USE KEY PHRASE “DISCOURAGED OR UNINTERESTED" THROUGHOUT THE SECTION`,
     options: [
       { label: "Yes", value: "Yes", trigger: "D12" },
-      { label: "No", value: "No", trigger: "D12" },
     ],
   },
   {
@@ -195,14 +186,13 @@ questions = [
         USE KEY PHRASE “DISCOURAGED" THROUGHOUT THE SECTION`,
     options: [
       { label: "Yes", value: "Yes", trigger: "D12" },
-      { label: "No", value: "No", trigger: "D12" },
     ],
   },
   {
     number: "D9",
     question: `Earlier in the interview, you mentioned having periods that lasted several days or longer when you lost interest in
         most things like work, hobbies, and other things you usually enjoy. Did you ever have a period of this sort that
-        lasted most of the day nearly every day for two weeks or longer?`,
+        lasted <u> most of the day nearly every day </u> for <u> two weeks </u> or longer?`,
     options: [
       { label: "Yes", value: 1, trigger: "D11" },
       { label: "No", value: 5, trigger: "D9a" },
@@ -214,7 +204,7 @@ questions = [
     number: "D9",
     question: `Earlier in the interview, you mentioned having periods that lasted several days or longer when you lost interest in
         most things like work, hobbies, and other things you usually enjoy. Did you ever have a period of this sort that
-        lasted most of the day nearly every day for two weeks or longer?`,
+        lasted <u> most of the day nearly every day </u> for <u> two weeks </u> or longer?`,
     options: [
       { label: "Yes", value: 1, trigger: "D11" },
       { label: "No", value: 5, trigger: "D9a" },
@@ -260,13 +250,12 @@ questions = [
     question: `INTERVIEWER INSTRUCTION: USE KEY PHRASE “UNINTERESTED” THROUGHOUT THE SECTION`,
     options: [
       { label: "YES", value: 1, trigger: "D16" },
-      { label: "NO", value: 2, trigger: "D16" },
     ],
   },
   {
     number: "D12",
-    question: `Did you ever have a period of being {D12feeling} in things that lasted most of the day,
-        nearly every day, for two weeks or longer?`,
+    question: `Did you ever have a period of being {D12feeling} in things that lasted <u>most of the day,
+        nearly every day</u>, for <u>two weeks</u> or longer?`,
     options: [
       { label: "Yes", value: 1, trigger: "D16" },
       { label: "No", value: 5, trigger: "D12a" },
@@ -303,7 +292,7 @@ questions = [
   },
   {
     number: "D14a",
-    question: `Did you ever have a year or more in your life when just about every month you had an episode of this sort?`,
+    question: `Did you ever have a year or more in your life <u>when just about every month</u> you had an episode of this sort?`,
     options: [
       { label: "Yes", value: 1, trigger: "D15" },
       { label: "No", value: 5, trigger: "D87_1" },
@@ -328,7 +317,7 @@ questions = [
   {
     number: "D16",
     question: `Think of times lasting two weeks or longer when (this problem/these problems) with your mood (was/were)
-        most severe and frequent. During those times, did your feelings of {D12feelingv2} usually last less than 1 hour, between 1 and 3 hours, between 3 and 5 hours, or more than 5 hours?`,
+        most <u>severe and frequent</u>. During those times, did your feelings of {D12feelingv2} usually last less than 1 hour, between 1 and 3 hours, between 3 and 5 hours, or more than 5 hours?`,
     options: [
       { label: "Less than 1 hour", value: 1, trigger: "D87_1" },
       { label: "1 to 3 hours", value: 2, trigger: "D17" },
@@ -377,14 +366,9 @@ questions = [
     ],
   },
   {
-    number: "D20_instructions_1",
-    question: "Select 1 for question D20",
-    inputType: "display",
-  },
-  {
     number: "D20",
-    question: `Select 1 if you see D20_instructions_1 appear, else choose 'All others'
-      Please select {D20Instruction}`,
+    question: `*D17 EQUALS ‘1’ AND *D18 EQUALS ‘4’ AND *D19 EQUAL ‘4’
+                <b style='color:red;'>Please select {D20Instruction}</b>`,
     options: [
       { value: 1, label: "1", trigger: "D87_1" },
       { value: 2, label: "All others", trigger: "D21" },
@@ -405,8 +389,8 @@ questions = [
   },
   {
     number: "D22",
-    question: `(READ SLOWLY) Please think of an episode of being {D12feeling} lasting {D_freq}
-            or longer when you also had the largest number of these other problems at the same time. Is there
+    question: `(READ SLOWLY) Please think of an episode of being {D12feeling} lasting (several days/two weeks)
+            or longer when you also had the <u>largest number</u> of these other problems at the same time. Is there
             one particular episode of this sort that stands out in your mind as the worst one you ever had?`,
     options: [
       { label: "Yes", value: 1, trigger: "D22a" },
@@ -513,7 +497,13 @@ questions = [
   },
   {
     number: "D24",
-    question: `Press click on proceed to continue`,
+    question: `(RB, PG 4. FOR EACH ITEM ENDORSED, ASK R TO MARK IT IN THE RB.) Look at page 4 in your 
+                booklet. In answering the next questions, think about the period of {D22dtime} or longer during 
+                that episode when your {D12feeling} and other problems were most 
+                <u>severe and frequent</u>. During that period, which of the following problems did you have 
+                <u>most of the day nearly every day</u>: 
+
+                <br>Press click on proceed to continue`,
     inputType: "display",
     trigger: "D24a",
   },
@@ -603,7 +593,7 @@ questions = [
   {
     number: "D26b",
     question:
-      "Did you have a much larger appetite than usual nearly every day?",
+      "Did you have a much <u>larger</u> appetite than usual nearly every day?",
     options: [
       { label: "Yes", value: 1, trigger: "D26c" },
       { label: "No", value: 5, trigger: "D26c" },
@@ -639,7 +629,7 @@ questions = [
   },
   {
     number: "D26e",
-    question: "Did you lose weight without trying to?",
+    question: "Did you <u>lose</u> weight without trying to?",
     options: [
       { label: "Yes", value: 1, trigger: "D26f" },
       { label: "No", value: 5, trigger: "D26g" },
@@ -708,7 +698,7 @@ questions = [
   },
   {
     number: "D26k",
-    question: `Did you have a lot more energy than usual nearly every day during
+    question: `Did you have a lot <u>more</u> energy than usual nearly every day during
         that period of {D22dtime}?`,
     options: [
       { label: "Yes", value: 1, trigger: "D26l" },
@@ -982,7 +972,10 @@ questions = [
   },
   {
     number: "D27",
-    question: `{D27instructions}`,
+    question:  `IF AT LEAST ONE ‘1’ RESPONSE IN *D24a- *D24d, INCREMENT COUNT BY ONE. 
+                IF AT LEAST ONE ‘1’ RESPONSE IN *D24e- *D24f, INCREMENT COUNT BY ONE.  INCREMENT 
+                COUNT BY ONE FOR EACH ‘1’ RESPONSE IN *D26a - *D26ii.  
+                <b style="color:red;">{D27instructions}</b>`,
     options: [
       { label: "COUNT EQUALS TWO OR MORE", value: 1, trigger: "D28" },
       { label: "ALL OTHERS", value: 5, trigger: "D87_1" },
@@ -1006,7 +999,7 @@ questions = [
   {
     number: "D28a",
     question: `How often during that episode were you unable to carry out your daily activities because of your
-        {D12feelingv2} - often, sometimes, rarely, or never? 
+        {D12feeling} - often, sometimes, rarely, or never? 
         `,
     options: [
       { label: "OFTEN", value: 1, trigger: "D29" },
@@ -1019,16 +1012,13 @@ questions = [
   },
   {
     number: "D29",
-    question: `When I use the word “episode” in the next questions, I mean a time lasting several days/two weeks or longer
-        when nearly every day you were {D12feeling} and also had some of the other problems
+    question: `When I use the word “episode” in the next questions, I mean a time lasting (several days/two weeks) or longer
+        when nearly every day you were {D29feeling} and also had some of the other problems
         we talked about. The episode ends when you no longer have the problems for two weeks in a row. With this
         definition in mind, about how many different episodes did you ever have in your entire life? 
         `,
     inputType: "response",
-    min: 0,
-    max: 4,
     trigger: "D29a",
-    requiresRange: true,
   },
   {
     number: "D29a_detail_1",
@@ -1058,7 +1048,7 @@ questions = [
   },
   {
     number: "D29b",
-    question: `Do you think your episode(s) always the result of physical
+    question: `Do you think your episode(s) <u>always</u> the result of physical
         causes? 
         `,
     options: [
@@ -1076,7 +1066,7 @@ questions = [
   },
   {
     number: "D29d",
-    question: "INTERVIEWER CHECKPOINT {D29dInstruction}",
+    question: `<b style="color:red;">INTERVIEWER CHECKPOINT {D29dInstruction}</b>`,
     options: [
       {
         label: "SELECT if D29 EQUALS 1",
@@ -1088,8 +1078,8 @@ questions = [
   },
   {
     number: "D37",
-    question: `Think of the very first time in your life you had an episode lasting {D22dtime}
-        when most of the day nearly every day you felt {D12feeling} and also had some of the other
+    question: `Think of the <u>very first time</u> in your life you had an episode lasting {D22dtime}
+        when <u>most of the day nearly every day</u> you felt {D12feeling} and also had some of the other
         problems we just reviewed. Can you remember your exact age?`,
     options: [
       { label: "Yes", value: 1, trigger: "D37a" },
@@ -1170,7 +1160,7 @@ questions = [
   },
   {
     number: "D37e",
-    question: `INTERVIEWER CHECKPOINT: {D37eInstruction}`,
+    question: `<b style="color:red;">INTERVIEWER CHECKPOINT: {D37eInstruction}</b>`,
     options: [
       { label: "Yes", value: 1, trigger: "D37g" },
       { label: "All others", value: 2, trigger: "D37f" },
@@ -1211,7 +1201,7 @@ questions = [
   },
   {
     number: "D37g",
-    question: `INTERVIEWER CHECKPOINT {D37gInstruction}`,
+    question: `<b style="color:red;">INTERVIEWER CHECKPOINT {D37gInstruction}</b>`,
     options: [
       { label: "Yes", value: 1, trigger: "D38" },
       { label: "All others", value: 2, trigger: "D37h1" },
@@ -1220,7 +1210,7 @@ questions = [
   {
     number: "D37h1",
     question: `You already told me about your first episode. About how much time went on between **(READ SLOWLY)** the
-        end of your first episode and the beginning of your second episode? `,
+        <u>end of your first</u> episode and the <u>beginning of your second</u> episode? `,
     inputType: "response",
     trigger: "D37i1",
   },
@@ -1269,7 +1259,7 @@ questions = [
   },
   {
     number: "D37l",
-    question: `INTERVIEWER CHECKPOINT {D37lInstruction}`,
+    question: `<b style="color:red;">INTERVIEWER CHECKPOINT {D37lInstruction}</b>`,
     options: [
       { label: "Yes", value: 1, trigger: "D38" },
       { label: "All others", value: 2, trigger: "D37m1" },
@@ -1339,7 +1329,7 @@ questions = [
   },
   {
     number: "D38_1",
-    question: `INTERVIEWER CHECKPOINT: {D37eInstruction} `,
+    question: `<b style="color:red;">INTERVIEWER CHECKPOINT: {D37eInstruction}</b> `,
     options: [
       { label: "Yes", value: 1, trigger: "D72" },
       { label: "ALL OTHER", value: 2, trigger: "D38c" },
@@ -1395,7 +1385,7 @@ questions = [
   },
   {
     number: "D38a_6",
-    question: `Has this episode ended or is it still going on?`,
+    question: `Has this episode <u>ended</u> or is it still going on?`,
     options: [
       { label: "ENDED", value: 1, trigger: "D38b" },
       { label: "STILL GOING ON", value: 5, trigger: "D38b" },
@@ -1443,24 +1433,24 @@ questions = [
     inputType: "response",
     trigger: "D38b_1",
   },
-  // {
-  //   number: "D38b_1_instructions_1",
-  //   question: `Select 1 for D38b_1`,
-  //   inputType: "display",
-  // },
-  // {
-  //   number: "D38b_1_instructions_2",
-  //   question: `Select 2 for D38b_1`,
-  //   inputType: "display",
-  // },
-  // {
-  //   number: "D38b_1_instructions_3",
-  //   question: `Select 3 for D38b_1`,
-  //   inputType: "display",
-  // },
+  {
+    number: "D38b_1_instructions_1",
+    question: `<b style="color:red;">Select 1 for D38b_1</b>`,
+    inputType: "display",
+  },
+  {
+    number: "D38b_1_instructions_2",
+    question: `<b style="color:red;">Select 2 for D38b_1</b>`,
+    inputType: "display",
+  },
+  {
+    number: "D38b_1_instructions_3",
+    question: `<b style="color:red;">Select 3 for D38b_1</b>`,
+    inputType: "display",
+  },
   {
     number: "D38b_1",
-    question: `INTERVIEWER CHECKPOINT: Please select {D38b1Instructions}`,
+    question: `INTERVIEWER CHECKPOINT: (SEE *D38b_1_instructions)`,
     options: [
       { label: "1 [D29 EQUALS '1']", value: 1, trigger: "D62_2" },
       { label: "2 [D29 EQUALS '2' or '3']", value: 2, trigger: "D54" },
@@ -1475,8 +1465,8 @@ questions = [
   },
   {
     number: "D39",
-    question: `What is the longest episode you ever had when you were {D12feeling} and also had
-        some of the other problems we reviewed most of the day nearly every day? (USE LARGEST UNIT. E.G. 365 DAYS => 1 YEAR)`,
+    question: `What is the <u>longest</u> episode you ever had when you were {D12feeling} and also had
+        some of the other problems we reviewed <u>most of the day nearly every day</u>? (USE LARGEST UNIT. E.G. 365 DAYS => 1 YEAR)`,
     inputType: "response",
     trigger: "D40",
   },
@@ -1492,27 +1482,27 @@ questions = [
   },
   {
     number: "D40_instructions_1",
-    question: `Select Yes for D40`,
+    question: `<b style="color:red;">Select Yes for D40</b>`,
     inputType: "display",
   },
   {
     number: "D40_instructions_2",
-    question: `Select Yes for D40`,
+    question: `<b style="color:red;">Select Yes for D40</b>`,
     inputType: "display",
   },
   {
     number: "D40_instructions_3",
-    question: `Select All others for D40`,
+    question: `<b style="color:red;">Select All others for D40</b>`,
     inputType: "display",
   },
   {
     number: "D40_instructions_4",
-    question: `Select All others for D40`,
+    question: `<b style="color:red;">Select All others for D40</b>`,
     inputType: "display",
   },
   {
     number: "D40_instructions_5",
-    question: `Select All others for D40`,
+    question: `<b style="color:red;">Select All others for D40</b>`,
     inputType: "display",
   },
   {
@@ -1529,7 +1519,7 @@ questions = [
   },
   {
     number: "D41",
-    question: `Did you ever have at least one full year with episodes lasting several days or more just about every month?`,
+    question: `Did you ever have at least one full year with episodes lasting several days or more <u>just about every month?</u>`,
     options: [
       { label: "Yes", value: 1, trigger: "D42" },
       { label: "No", value: 5, trigger: "D54" },
@@ -1539,7 +1529,7 @@ questions = [
   },
   {
     number: "D42",
-    question: `How old were you the first time you had a year of this sort (when you had an episode just about every month)?`,
+    question: `How old were you the <u>first</u> time you had a year of this sort (when you had an episode just about every month)?`,
     inputType: "response",
     trigger: "D42_1",
   },
@@ -1579,7 +1569,7 @@ questions = [
   },
   {
     number: "D46",
-    question: `Did you ever have a full year or longer when you were in an episode most days?`,
+    question: `Did you ever have a full year or longer when you were in an episode <u>most days</u>?`,
     options: [
       { label: "Yes", value: 1, trigger: "D47" },
       { label: "No", value: 5, trigger: "D54" },
@@ -1589,7 +1579,7 @@ questions = [
   },
   {
     number: "D47",
-    question: ` And how old were you the first time you had a year of this sort (when you were in an episode most days)?`,
+    question: ` And how old were you the first time you had a year of this sort (when you were in an episode <u>most days</u>)?`,
     inputType: "response",
     trigger: "D48",
   },
@@ -1610,7 +1600,7 @@ questions = [
   },
   {
     number: "D50",
-    question: `What is the longest continuous number of years in a row in which you were in an episode most days?`,
+    question: `What is the longest continuous number of years in a row in which you were in an episode <u>most days</u>?`,
     inputType: "response",
     trigger: "D62_1",
   },
@@ -1630,28 +1620,28 @@ questions = [
   },
   {
     number: "D56",
-    question: `What is the longest continuous number of years in a row in which you had at least one episode per year?`,
+    question: `What is the longest <u>continuous</u> number of years in a row in which you had at least one episode per year?`,
     inputType: "response",
     trigger: "D57",
   },
   {
     number: "D57_instructions_1",
-    question: `Select Yes for D57`,
+    question: `<b style="color:red;">Select Yes for D57</b>`,
     inputType: "display",
   },
   {
     number: "D57_instructions_2",
-    question: `Select Yes for D57`,
+    question: `<b style="color:red;">Select Yes for D57</b>`,
     inputType: "display",
   },
   {
     number: "D57_instructions_3",
-    question: `Select All others for D57`,
+    question: `<b style="color:red;">Select All others for D57</b>`,
     inputType: "display",
   },
   {
     number: "D57_instructions_4",
-    question: `Select All others for D57`,
+    question: `<b style="color:red;">Select All others for D57</b>`,
     inputType: "display",
   },
   {
@@ -1664,7 +1654,7 @@ questions = [
   },
   {
     number: "D58",
-    question: `Did you ever have a period lasting a full year or longer when you were in an episode most days?`,
+    question: `Did you ever have a period lasting a full year or longer when you were in an episode <u>most days</u>?`,
     options: [
       { label: "Yes", value: 1, trigger: "D59" },
       { label: "No", value: 5, trigger: "D62_1" },
@@ -1674,13 +1664,13 @@ questions = [
   },
   {
     number: "D59",
-    question: `About how many years in your life were you in an episode most days? `,
+    question: `About how many years in your life were you in an episode <u>most days</u>? `,
     inputType: "response",
     trigger: "D59a",
   },
   {
     number: "D59a",
-    question: `And how old were you the first time you had a year of this sort (when you were in an episode most days)?`,
+    question: `And how old were you the <u>first</u> time you had a year of this sort (when you were in an episode <u>most days</u>)?`,
     inputType: "response",
     trigger: "D60",
   },
@@ -1700,7 +1690,7 @@ questions = [
   },
   {
     number: "D62_1",
-    question: ` INTERVIEWER CHECKPOINT: (SEE D38)`,
+    question: ` INTERVIEWER CHECKPOINT: (SEE D38) {D38info}`,
     options: [
       { label: "D38 EQUALS 'Yes (1)'", value: 1, trigger: "D62_2" },
       { label: "All others", value: 2, trigger: "D72" },
@@ -1717,8 +1707,8 @@ questions = [
   {
     number: "D62_3",
     question: `(RB, PG 6-8) For the next questions I need you to think about the period of {D22dtime} or more
-    during the past 12 months when your {D12feelingv2} was most severe and
-    frequent. Please read each of the fourteen sets of statements on page 6-8 in your booklet and circle the one
+    during the <u>past 12 months</u> when your {D12feelingv2} was most <u>severe and
+    frequent</u>. Please read each of the fourteen sets of statements on page 6-8 in your booklet and circle the one
     response for each of the fourteen that best describes how you were during those {D22dtime}. As
     you finish each set, please tell me the number of the statement you have circled.`,
     inputType: "display",
@@ -1726,9 +1716,9 @@ questions = [
   },
   {
     number: "D64",
-    question: `(RB, PG 6_8) For the next questions I need you to think about the period of xxx or more
-    during the past 12 months when your {D12feelingv2} was most severe and
-    frequent. I'm going to read fourteen series of statements. Please pick the one statement in each series that
+    question: `(RB, PG 6_8) For the next questions I need you to think about the period of (several days/two weeks) or more
+    during the <u>past 12 months</u> when your {D12feelingv2} was most <u>severe and
+    frequent</u>. I'm going to read fourteen series of statements. Please pick the one statement in each series that
     comes closest to your experience during that worst (several days/two weeks). `,
     inputType: "display",
     trigger: "D64a.info",
@@ -1985,11 +1975,11 @@ being {D12feeling} in the past 12 months?) <br>Put the selected number in numeri
   {
     number: "D66",
     question: `(RB, PG 9) Think about the period lasting one month or longer in the past 12 months when your
-    {D12feelingv2} was most severe. Using the 0 to 10 scale on page 9 of your
-    booklet, where 0 means no interference and 10 means very severe interference, what number describes how
+    {D12feeling} was most severe. Using the 0 to 10 scale on page 9 of your
+    booklet, where 0 means <u>no</u> interference and 10 means very <u>severe</u> interference, what number describes how
     much your {D12feelingv2} interfered with each of the following activities during
     that period?
-    <br>(IF NEC: How much did your {D12feeling} interfere with (ACTIVITY)
+    <br>(IF NEC: How much did your {D12feelingv2} interfere with (ACTIVITY)
     during that period?)`,
     inputType: "display",
     trigger: "D66.scale",
@@ -2054,7 +2044,7 @@ being {D12feeling} in the past 12 months?) <br>Put the selected number in numeri
   },
   {
     number: "D67_instruction",
-    question: `Select ALL RESPONSES EQUAL '0' OR '97' for D67`,
+    question: `<b style="color:red;">Select ALL RESPONSES EQUAL '0' OR '97' for D67</b>`,
     inputType: "display",
   },
   {
@@ -2067,14 +2057,14 @@ being {D12feeling} in the past 12 months?) <br>Put the selected number in numeri
   },
   {
     number: "D68",
-    question: `About how many days out of 365 in the past 12 months were you totally unable to work or carry out your normal
+    question: `About how many days out of 365 in the past 12 months were you <u>totally unable</u> to work or carry out your normal
     activities because of your {D12feelingv2}? (IF NEC: You can use any number between 0 and 365 to answer.)`,
     inputType: "response",
     trigger: "D72",
   },
   {
     "number": "D72",
-    "question": `Did you ever in your life talk to a medical doctor or other professional about your {D12feelingv2}?<br>(By professional we mean psychologists, counselors, spiritual
+    "question": `Did you <u>ever</u> in your life talk to a medical doctor or other professional about your {D12feelingv2}?<br>(By professional we mean psychologists, counselors, spiritual
     advisors, herbalists, acupuncturists, and other healing professionals.)`,
     "options": [
       { "label": "Yes", "value": 1, "trigger": "D72a" },
@@ -2085,14 +2075,14 @@ being {D12feeling} in the past 12 months?) <br>Put the selected number in numeri
   },
   {
     "number": "D72a",
-    "question": `How old were you the first time [you talked to a professional about your {D12feelingv2}]?`,
+    "question": `How old were you the <u>first time</u> [you talked to a professional about your {D12feelingv2}]?`,
     "inputType": "response",
     "trigger": "D84",
   },
   {
     number: "D84",
-    question: `Did you ever get treatment for your {D12feelingv2} that you considered helpful
-    or effective?`,
+    question: `Did you ever get treatment for your {D12feelingv2} that you considered <u>helpful</u>
+    or <u>effective</u>?`,
     options: [
       { label: "Yes", value: 1, trigger: "D84a" },
       { label: "No", value: 5, trigger: "D84c" },
@@ -2102,13 +2092,13 @@ being {D12feeling} in the past 12 months?) <br>Put the selected number in numeri
   },
   {
     "number": "D84a",
-    "question": `How old were you the first time [you got helpful treatment for your {D12feelingv2}]? `,
+    "question": `How old were you the <u>first time</u> [you got <u>helpful</u> treatment for your {D12feelingv2}]? `,
     "inputType": "response",
     "trigger": "D84b",
   },
   {
     "number": "D84b",
-    "question": `How many professionals did you ever talk to about your {D12feelingv2},
+    "question": `How many professionals did you <u>ever</u> talk to about your {D12feelingv2},
     up to and including the first time you got helpful treatment? `,
     "inputType": "response",
     options: [
@@ -2119,7 +2109,7 @@ being {D12feeling} in the past 12 months?) <br>Put the selected number in numeri
   },
   {
     "number": "D84c",
-    "question": `How many professionals did you ever talk to about your {D12feelingv2}?`,
+    "question": `How many professionals did you <u>ever</u> talk to about your {D12feelingv2}?`,
     "inputType": "response",
     options: [
       { label: "Don't know", value: 98, "trigger": "D86" },
